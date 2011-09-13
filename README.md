@@ -11,8 +11,13 @@ auto xhprof
 xhprof表结构：
 
 CREATE TABLE `xhprof` (
+
 `run_id` varchar(64) DEFAULT NULL,
+
 `type` varchar(256) DEFAULT NULL,
+
 `data` text,
+
 `optime` datetime DEFAULT NULL
+
 );
