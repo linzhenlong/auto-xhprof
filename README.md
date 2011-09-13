@@ -31,7 +31,8 @@ index.php显示MySQL中保存的xhprof信息。
 
     define('__XHPROF_GERAMAN_SERVERS', '127.0.0.1:4730;127.0.0.1:4730'); // gearman 服务器定义
 
-    shell> $ gearmand -vvv -q libdrizzle --libdrizzle-host=127.0.0.1 --libdrizzle-user=root --libdrizzle-password=123456 --libdrizzle-db=gearman\
+    shell> $ gearmand -vvv -q libdrizzle --libdrizzle-host=127.0.0.1\
+       --libdrizzle-user=root --libdrizzle-password=123456 --libdrizzle-db=gearman\
        --libdrizzle-table=queue --libdrizzle-mysql
 
     shell> $ php gearman-worker.php
