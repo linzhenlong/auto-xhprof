@@ -18,7 +18,7 @@ include_once __XHPROF_LIB_DIR . 'utils/xhprof_runs.php';
 
 $page_start_time = getmicrotime();            // 页面启动时间
 $xhprof_enabled  = module_enabled('xhprof');  // 检查xhprof模块是否可用
-$gearman_enabled = module_enabled('garman'); // 检查gearman模块是否可用
+$gearman_enabled = module_enabled('gearman'); // 检查gearman模块是否可用
 $xhprof_running  = false;                     // 当前页面是否启动xhprof
 
 function getmicrotime() { // 获取毫秒
