@@ -16,9 +16,6 @@ index.php显示MySQL中保存的xhprof信息。
 
 常量的定义请参考auto-xhprof.php中define部分。
 
-    define('__XHPROF_DIR',            dirname(__FILE__));             // 根目录
-    define('__XHPROF_LIB_DIR',        __XHPROF_DIR . '/xhprof_lib/'); // xhprof_lib 目录
-
     define('__XHPROF_AUTO_START',     true); // 是否自动打开全局xhprof
     define('__XHPROF_SAVE_TIMEOUT',   2);    // 超过几秒自动保存数据到MySQL
 
