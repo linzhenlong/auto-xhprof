@@ -11,19 +11,22 @@ define('__XHPROF_MYSQL_USER',     'root');      // MySQL 用户名
 define('__XHPROF_MYSQL_PASS',     '123456');    // MySQL 账户密码
 define('__XHPROF_MYSQL_DB',       'xhprof');    // 表名
 
+define('__XHPROF_GERAMAN_SERVERS', '127.0.0.1:4730;127.0.0.1:4730'); // gearman 服务器定义
+
 include_once __XHPROF_LIB_DIR . 'utils/xhprof_lib.php';
 include_once __XHPROF_LIB_DIR . 'utils/xhprof_runs.php';
 
-$page_start_time = getmicrotime();           // 页面启动时间
-$xhprof_enabled  = module_enabled('xhprof'); // 检查xhprof模块是否可用
-$xhprof_running  = false;                    // 当前页面是否启动xhprof
+$page_start_time = getmicrotime();            // 页面启动时间
+$xhprof_enabled  = module_enabled('xhprof');  // 检查xhprof模块是否可用
+$gearman_enabled = module_enabled('garman'); // 检查gearman模块是否可用
+$xhprof_running  = false;                     // 当前页面是否启动xhprof
 
 function getmicrotime() { // 获取毫秒
     list($usec, $sec) = explode(' ',microtime());  
     return ((float)$usec + (float)$sec);  
 }
 
-function module_enabled($module) { // 检查模块是否keyo哪个
+function module_enabled($module) { // 检查模块是否可用
     return in_array($module, get_loaded_extensions());
 }
 
@@ -38,13 +41,33 @@ function xhprof_start() { // 打开xhprof
 }
 
 function xhprof_stop() { // 关闭xhprof
-    global $xhprof_running;
+    global $xhprof_running, $gearman_enabled;
     if ($xhprof_running) {
         $xhprof_type = $_SERVER['HTTP_HOST'];
         $xhprof_data = xhprof_disable();
-        $xhprof_run  = new XHProfRuns_MySQL();
-        $run_id      = $xhprof_run->save_run($xhprof_data, $xhprof_type);
-        printf("\n<!-- xhprof save, id: %s -->\n", $run_id);
+        // 检查是否安装gearman扩展，并设置gearman server
+        if ($gearman_enabled && defined('__XHPROF_GERAMAN_SERVERS') && strlen(__XHPROF_GERAMAN_SERVERS) > 0) {
+            $ret = do_background_job('xhprof.write',
+                serialize(array('type' => $xhprof_type, 'data' => $xhprof_data)));
+            echo "\n<!-- xhprof gearman save: $ret -->\n";
+        } else {
+            $xhprof_run  = new XHProfRuns_MySQL();
+            $run_id      = $xhprof_run->save_run($xhprof_data, $xhprof_type);
+            echo "\n<!-- xhprof save, id: $run_id -->\n";
+        }
+    }
+    return false;
+}
+
+function do_background_job($action, $data) { // 保存数据到gearman，异步执行
+    $gm = new GearmanClient();
+    foreach (explode(";", __XHPROF_GERAMAN_SERVERS) as $server) {
+        list($host, $port) = explode(":", $server);
+        $gm->addServer($host, $port);
+    }
+    $gm->doBackground($action, $data);
+    if ($gm->returnCode() == GEARMAN_SUCCESS) {
+        return true;
     }
     return false;
 }

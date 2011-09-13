@@ -2,6 +2,8 @@
 auto xhprof
 ======
 
+index.php显示MySQL中保存的xhprof信息。
+
 通过设置php.ini中的auto_prepend_file，加载auto-xhprof，保存数据到MySQL。
 
     ;php.ini
@@ -24,6 +26,15 @@ auto xhprof
     define('__XHPROF_MYSQL_USER',     'root');      // MySQL 用户名
     define('__XHPROF_MYSQL_PASS',     '123456');    // MySQL 账户密码
     define('__XHPROF_MYSQL_DB',       'xhprof');    // 表名
+
+已安装gearman.so模块，并定义：__XHPROF_GERAMAN_SERVERS常量，程序将会异步发送数据到后端xhprof-worker.php。
+
+    define('__XHPROF_GERAMAN_SERVERS', '127.0.0.1:4730;127.0.0.1:4730'); // gearman 服务器定义
+
+    shell> $ gearmand -vvv -q libdrizzle --libdrizzle-host=127.0.0.1 --libdrizzle-user=root --libdrizzle-password=123456 --libdrizzle-db=gearman\
+       --libdrizzle-table=queue --libdrizzle-mysql
+
+    shell> $ php gearman-worker.php
 
 页面展示部分请修改index.php/callgraph.php中$xhprof_runs_impl实例部分，修改成XHProfRuns_MySQL。
 
