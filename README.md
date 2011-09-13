@@ -4,13 +4,13 @@ auto xhprof
 
 通过设置php.ini中的auto_prepend_file，加载auto-xhprof，保存数据到MySQL。
 
-;php.in
-auto_prepend_file = '/path/prepend.php'
+    ;php.ini
+    auto_prepend_file = '/path/prepend.php'
 
-;prepend.php
-<?php
-include_once '/path/auto-xhprof.php';
-?>
+    ;prepend.php
+    <?php
+    include_once '/path/auto-xhprof.php';
+    ?>
 
 常量的定义请参考auto-xhprof.php中define部分。
 
