@@ -43,7 +43,7 @@ function xhprof_start() { // 打开xhprof
 function xhprof_stop() { // 关闭xhprof
     global $xhprof_running, $gearman_enabled;
     if ($xhprof_running) {
-        $xhprof_type = $_SERVER['HTTP_HOST'];
+        $xhprof_type = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $xhprof_data = xhprof_disable();
         // 检查是否安装gearman扩展，并设置gearman server
         if ($gearman_enabled && defined('__XHPROF_GERAMAN_SERVERS') && strlen(__XHPROF_GERAMAN_SERVERS) > 0) {
