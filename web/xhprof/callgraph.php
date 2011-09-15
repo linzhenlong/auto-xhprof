@@ -31,9 +31,10 @@
 
 // by default assume that xhprof_html & xhprof_lib directories
 // are at the same level.
-$GLOBALS['XHPROF_LIB_ROOT'] = dirname(__FILE__) . '/../xhprof_lib';
+// $GLOBALS['XHPROF_LIB_ROOT'] = dirname(__FILE__) . '/../xhprof_lib';
 
-include_once $GLOBALS['XHPROF_LIB_ROOT'].'/display/xhprof.php';
+// include_once $GLOBALS['XHPROF_LIB_ROOT'].'/display/xhprof.php';
+include_once __XHPROF_LIB_DIR.'/display/xhprof.php';
 
 ini_set('max_execution_time', 100);
 

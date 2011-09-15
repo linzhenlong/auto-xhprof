@@ -1,17 +1,6 @@
 <?php
 
-define('__XHPROF_DIR',            dirname(__FILE__));             // 根目录
-define('__XHPROF_LIB_DIR',        __XHPROF_DIR . '/xhprof_lib/'); // xhprof_lib 目录
-
-define('__XHPROF_AUTO_START',     true); // 是否自动打开全局xhprof
-define('__XHPROF_SAVE_TIMEOUT',   2);    // 超过几秒自动保存数据到MySQL
-
-define('__XHPROF_MYSQL_HOST',     '127.0.0.1'); // MySQL 主机
-define('__XHPROF_MYSQL_USER',     'root');      // MySQL 用户名
-define('__XHPROF_MYSQL_PASS',     '123456');    // MySQL 账户密码
-define('__XHPROF_MYSQL_DB',       'xhprof');    // 表名
-
-define('__XHPROF_GERAMAN_SERVERS', '127.0.0.1:4730;127.0.0.1:4730'); // gearman 服务器定义
+include_once 'auto-xhprof-config.php'; // 包含全局配置文件
 
 include_once __XHPROF_LIB_DIR . 'utils/xhprof_lib.php';
 include_once __XHPROF_LIB_DIR . 'utils/xhprof_runs.php';
@@ -41,20 +30,23 @@ function xhprof_start() { // 打开xhprof
 }
 
 function xhprof_stop() { // 关闭xhprof
-    global $xhprof_running, $gearman_enabled;
+    global $page_start_time, $xhprof_running, $gearman_enabled;
     if ($xhprof_running) {
+        $page_run_time = (getmicrotime() - $page_start_time) * 1000;
         $xhprof_type = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-        $xhprof_data = xhprof_disable();
-        // 检查是否安装gearman扩展，并设置gearman server
+        $xhprof_data = array();
+        $xhprof_data['data'] = xhprof_disable();
+        $xhprof_data['runtime'] = $page_run_time;
+        // 检查是否安装gearman扩展，并已设置gearman server
         if ($gearman_enabled && defined('__XHPROF_GERAMAN_SERVERS') && strlen(__XHPROF_GERAMAN_SERVERS) > 0) {
-            $ret = do_background_job('xhprof.write',
-                serialize(array('type' => $xhprof_type, 'data' => $xhprof_data)));
+            $ret = do_background_job('xhprof.write', serialize(array('type'=>$xhprof_type, 'data'=>$xhprof_data)));
             echo "\n<!-- xhprof gearman save: $ret -->\n";
         } else {
             $xhprof_run  = new XHProfRuns_MySQL();
             $run_id      = $xhprof_run->save_run($xhprof_data, $xhprof_type);
             echo "\n<!-- xhprof save, id: $run_id -->\n";
         }
+        $xhprof_running = false;
     }
     return false;
 }
@@ -75,10 +67,11 @@ function do_background_job($action, $data) { // 保存数据到gearman，异步�
 function default_shutdown_handler() { // 默认shutdown处理函数，计算出页面执行时间，xhprof打开，超过定义的秒数记录到MySQL
     global $page_start_time, $xhprof_running;
     $page_run_time = (getmicrotime() - $page_start_time) * 1000;
+    // 如果xhprof运行，并超时，停止分析并记录
     if ($xhprof_running && $page_run_time >= __XHPROF_SAVE_TIMEOUT * 1000) {
         xhprof_stop();
     }
-    printf("\n<!-- page runtime: %.3f ms, xhprof autorun: %d -->\n", $page_run_time, $xhprof_running);
+    printf("\n<!-- page runtime: %.3f ms -->\n", $page_run_time);
 }
 
 /* Class: XHProfRuns_MySQL
@@ -93,6 +86,8 @@ class XHProfRuns_MySQL implements iXHProfRuns {
         if ($db) {
             mysql_select_db(__XHPROF_MYSQL_DB);
             $this->db = $db;
+            // 如果表不存在
+            mysql_query($GLOBALS['XHPROF_TABLE_SQL']);
         }
     }
 
@@ -114,8 +109,8 @@ class XHProfRuns_MySQL implements iXHProfRuns {
     public function save_run($xhprof_data, $type, $run_id = null) {
         if ($this->db != null) {
             $run_id = uniqid();
-            $xhprof_data = serialize($xhprof_data);
-            $sql = "INSERT INTO xhprof (run_id, type, data, optime) VALUES ('$run_id', '$type', '$xhprof_data', now())";
+            $sql = sprintf("INSERT INTO xhprof(run_id, url, runtime, data, optime) VALUES ('%s', '%s', '%.2f', '%s', NOW())",
+                $run_id, $type, $xhprof_data['runtime'], serialize($xhprof_data['data']));
             $query = mysql_query($sql);
             mysql_close();
             return $run_id;

@@ -9,11 +9,11 @@ auto xhprof
 
 文件列表说明：
 
-    index.php            显示数据库中已保存的xhprof列表。
-    auto-xhprof.php      全局加载文件。
-    gearman-worker.php   gearman后台处理worker进程。
-    xhprof/              xhprof显示页面（读取/写入接口修改）。
-    xhprof_lib/          xhprof库文件。
+    auto-xhprof.php         全局加载文件。
+    auto-xhprof-config.php  全局配置文件，设置MySQL数据库和参数等。
+    gearman-worker.php      gearman后台处理worker进程。
+    web/                    web显示目录，xhprof列表页面和原xhprof展示部分
+    xhprof_lib/             xhprof库文件。
 
 
 php.ini配置：
@@ -27,7 +27,7 @@ php.ini配置：
     ?>
 
 
-auto-xhprof中常量的定义，根据实际情况进行修改：
+auto-xhprof-config.php中常量的定义，根据实际情况进行修改：
 
     define('__XHPROF_AUTO_START',     true); // 是否自动打开全局xhprof
     define('__XHPROF_SAVE_TIMEOUT',   2);    // 超过几秒自动保存数据到MySQL
@@ -54,13 +54,5 @@ Gearman定义：__XHPROF_GERAMAN_SERVERS：
     $xhprof_runs_impl = new XHProfRuns_MySQL();
     //$xhprof_runs_impl = new XHProfRuns_Default();
 
-xhprof数据库表结构：
-
-    CREATE TABLE xhprof (
-      run_id varchar(64) DEFAULT NULL,
-      type varchar(256) DEFAULT NULL,
-      data text,
-      optime datetime DEFAULT NULL
-    );
 
 __EOF__
