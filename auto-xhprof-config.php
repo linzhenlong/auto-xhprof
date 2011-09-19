@@ -14,14 +14,25 @@ define('__XHPROF_MYSQL_DB',       'xhprof');    // 表名
 // define('__XHPROF_GERAMAN_SERVERS', '127.0.0.1:4730;127.0.0.1:4730'); // gearman 服务器定义
 
 // 建表语句
-$GLOBALS['XHPROF_TABLE_SQL'] = <<<SQL
-CREATE TABLE IF NOT EXISTS `xhprof` (
-  `run_id` varchar(64) PRIMARY KEY,
-  `url` varchar(256) DEFAULT NULL,
-  `runtime` varchar(64) DEFAULT '',
-  `data` text,
-  `optime` datetime DEFAULT NULL
-)
+$GLOBALS['XHPROF_LOG_SQL'] = <<<SQL
+CREATE TABLE IF NOT EXISTS `xhprof_log` (
+    `run_id` VARCHAR(64) PRIMARY KEY ,
+    `url` VARCHAR(256) DEFAULT NULL,
+    `runtime` VARCHAR(64) DEFAULT NULL,
+    `data` TEXT,
+    `optime` DATETIME DEFAULT NULL
+);
+SQL;
+
+$GLOBALS['XHPROF_ERROR_SQL'] = <<<SQL
+CREATE TABLE IF NOT EXISTS `xhprof_error` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    `type` INT NOT NULL ,
+    `message` VARCHAR( 512 ) NOT NULL ,
+    `file` VARCHAR( 512 ) NOT NULL ,
+    `line` INT NOT NULL,
+    `optime` DATETIME DEFAULT NULL
+);
 SQL;
 
 ?>
