@@ -130,7 +130,6 @@ class XHProfRuns_MySQL implements iXHProfRuns {
                 $e = $xhprof_data['error'];
                 $sql = sprintf("INSERT INTO xhprof_error(type, message, file, line, optime) VALUES (%d, '%s', '%s', %d, NOW())",
                     $e['type'], mysql_escape_string($e['message']), mysql_escape_string($e['file']), $e['line']);
-                var_dump($sql);
                 mysql_query($sql);
             }
             mysql_close();
