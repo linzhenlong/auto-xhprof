@@ -27,7 +27,7 @@ $GLOBALS['AX_GEARMAN_SERVER']   = get_ini_value($ax_config, 'gearman.server');
 
 $xhprof_enabled  = module_enabled('xhprof');  // 检查xhprof模块是否可用
 $gearman_enabled = module_enabled('gearman'); // 检查gearman模块是否可用
-if (!$GLOBALS['AX_GEARMAN_SERVER']) {
+if ($gearman_enabled && !$GLOBALS['AX_GEARMAN_SERVER']) {
     $gearman_enabled = false;
 }
 
