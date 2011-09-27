@@ -48,7 +48,7 @@ if ($rows) {
         if (!empty($xhprof_id)) {
             $xhprof_id = "<a href='xhprof/index.php?run=".$xhprof_id."'>".$xhprof_id."</a>";
         }
-        printf("<tr bgcolor='#FFF'><td>%s</td><td>http://%s</td><td>%s ms</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+        printf("<tr bgcolor='#FFF'><td>%s</td><td>http://%s</td><td>%s s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
             $row['id'], $row['host'].$row['uri'], $row['resp_time'], $error_id, $xhprof_id, $row['client_time']);
     }
 }
