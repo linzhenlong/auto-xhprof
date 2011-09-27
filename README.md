@@ -50,16 +50,16 @@ auto-xhprof相关配置：
 
 Gearman后台使用示例：
 
-    shell> $ gearmand -vvv -q libdrizzle --libdrizzle-host=127.0.0.1\
+    % gearmand -vvv -q libdrizzle --libdrizzle-host=127.0.0.1\
        --libdrizzle-user=root --libdrizzle-password=123456 --libdrizzle-db=gearman\
        --libdrizzle-table=queue --libdrizzle-mysql
 
-    shell> $ php gearman-worker.php
+    % php gearman-worker.php &
 
 
 页面显示修改index.php/callgraph.php中$xhprof_runs_impl实例部分，修改成XHProfRuns_DB：
 
-    $xhprof_runs_impl = new XHProfRuns_MySQL();
+    $xhprof_runs_impl = new XHProfRuns_DB();
     //$xhprof_runs_impl = new XHProfRuns_Default();
 
 
