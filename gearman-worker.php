@@ -3,11 +3,9 @@ include_once 'auto-xhprof.php';
 
 // 注册后台保存xhprof数据
 function xhprof_write($job) {
-    $stream = unserialize($job->workload());
-    $type   = $stream['type'];
-    $data   = $stream['data'];
-    $xhprof_run  = new XHProfRuns_MySQL();
-    $run_id      = $xhprof_run->save_run($data, $type);
+    $data = unserialize($job->workload());
+    $xhprof_run  = new XHProfRuns_DB();
+    $run_id      = $xhprof_run->save_run($data);
     echo "gearman save id: $run_id\n";
 }
 
@@ -15,7 +13,7 @@ function xhprof_write($job) {
 $worker = new GearmanWorker();
 
 // 添加server
-foreach (explode(";", __XHPROF_GERAMAN_SERVERS) as $server) {
+foreach (explode(";", $GLOBALS['AX_GEARMAN_SERVER']) as $server) {
     list($host, $port) = explode(":", $server);
     $worker->addServer($host, $port);
 }

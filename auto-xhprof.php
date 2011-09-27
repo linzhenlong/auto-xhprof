@@ -1,23 +1,38 @@
 <?php
 
-include_once 'auto-xhprof-config.php'; // 包含全局配置文件
+define('__XHPROF_DIR',     dirname(__FILE__));
+define('__XHPROF_LIB_DIR', __XHPROF_DIR . '/xhprof_lib/');
 
-include_once __XHPROF_LIB_DIR . 'utils/xhprof_lib.php';
-include_once __XHPROF_LIB_DIR . 'utils/xhprof_runs.php';
-
-$page_start_time = getmicrotime();            // 页面启动时间
-$xhprof_enabled  = module_enabled('xhprof');  // 检查xhprof模块是否可用
-
-$gearman_enabled = module_enabled('gearman'); // 检查gearman模块是否可用
-if (!defined('__XHPROF_GERAMAN_SERVERS')) {
-    $gearman_enabled = false;
-}
-
-$xhprof_running  = false; // 当前页面是否启动xhprof
+include_once __XHPROF_LIB_DIR . '/utils/xhprof_lib.php';
+include_once __XHPROF_LIB_DIR . '/utils/xhprof_runs.php';
 
 function getmicrotime() { // 获取毫秒
     list($usec, $sec) = explode(' ',microtime());  
     return ((float)$usec + (float)$sec);  
+}
+
+$GLOBALS['AX_PAGE_START_TIME'] = getmicrotime();  // 页面启动时间
+$GLOBALS['AX_XHPROF_IS_RUN']   = false;           // 当前页面是否启动xhprof
+
+// 获取ini中相关配置信息
+$ax_ini    = parse_ini_file(__XHPROF_DIR . '/auto-xhprof.ini', true);
+$ax_config = $ax_ini['auto_xhprof'];
+$GLOBALS['AX_XHPROF_AUTOSTART'] = get_ini_value($ax_config, 'xhprof.autostart');
+$GLOBALS['AX_XHPROF_TIMEOUT']   = get_ini_value($ax_config, 'xhprof.timeout');
+$GLOBALS['AX_XHPROF_IGNORE']    = get_ini_value($ax_config, 'xhprof.ignore');
+$GLOBALS['AX_DATABASE_DSN']     = get_ini_value($ax_config, 'database.dsn');
+$GLOBALS['AX_DATABASE_USER']    = get_ini_value($ax_config, 'database.user');
+$GLOBALS['AX_DATABASE_PASS']    = get_ini_value($ax_config, 'database.pass');
+$GLOBALS['AX_GEARMAN_SERVER']   = get_ini_value($ax_config, 'gearman.server');
+
+$xhprof_enabled  = module_enabled('xhprof');  // 检查xhprof模块是否可用
+$gearman_enabled = module_enabled('gearman'); // 检查gearman模块是否可用
+if (!$GLOBALS['AX_GEARMAN_SERVER']) {
+    $gearman_enabled = false;
+}
+
+function get_ini_value($ini, $key) {
+    return array_key_exists($key, $ini) ? $ini[$key] : false;
 }
 
 function module_enabled($module) { // 检查模块是否可用
@@ -25,114 +40,152 @@ function module_enabled($module) { // 检查模块是否可用
 }
 
 function xhprof_start() { // 打开xhprof
-    global $xhprof_enabled, $xhprof_running;
+    global $xhprof_enabled;
     if ($xhprof_enabled) {
         xhprof_enable();
-        $xhprof_running = true;
-        return true;
+        $GLOBALS['AX_XHPROF_IS_RUN']= true;
     }
-    return false;
 }
 
-function xhprof_stop($error=null) { // 关闭xhprof
-    global $page_start_time, $xhprof_running, $gearman_enabled;
-    if ($xhprof_running) {
-        $page_run_time = (getmicrotime() - $page_start_time) * 1000;
-        $xhprof_type = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-        $xhprof_data = array();
-        $xhprof_data['data']    = xhprof_disable();
-        $xhprof_data['runtime'] = $page_run_time;
-        $xhprof_data['error']   = $error;
+function xhprof_stop() { // 关闭xhprof
+    global $gearman_enabled;
+    $error = error_get_last();
+    if (!empty($error) || $GLOBALS['AX_XHPROF_IS_RUN'] || $page_run_time >= $GLOBALS['AX_XHPROF_TIMEOUT']) {
+        $data = array();
+        $data['host']        = $_SERVER['HTTP_HOST'];
+        $data['uri']         = $_SERVER['PHP_SELF'];
+        $data['client_time'] = date('Y-m-d H:i:s');
+        $data['resp_time']   = sprintf("%.4f", $GLOBALS['AX_PAGE_END_TIME'] - $GLOBALS['AX_PAGE_START_TIME']);
+        $data['xhprof']      = null;
+        if ($GLOBALS['AX_XHPROF_IS_RUN']) {
+            $data['xhprof'] = xhprof_disable();
+            $GLOBALS['AX_XHPROF_IS_RUN'] = false;
+        }
+        $data['error']     = $error;
         // 检查是否安装gearman扩展，并已设置gearman server
         if ($gearman_enabled) {
-            $ret = do_background_job('xhprof.write', serialize(array('type'=>$xhprof_type, 'data'=>$xhprof_data)));
-            echo "\n<!-- xhprof gearman save: $ret -->\n";
+            $ret = do_background_job('xhprof.write', serialize($data));
+            echo "\n<!-- gearman save: $ret -->\n";
         } else {
-            $xhprof_run  = new XHProfRuns_MySQL();
-            $run_id      = $xhprof_run->save_run($xhprof_data, $xhprof_type);
+            $xhprof_run = new XHProfRuns_DB();
+            $run_id     = $xhprof_run->save_run($data);
             echo "\n<!-- xhprof save, id: $run_id -->\n";
         }
-        $xhprof_running = false;
     }
-    return false;
 }
 
 function do_background_job($action, $data) { // 保存数据到gearman，异步执行
     $gm = new GearmanClient();
-    foreach (explode(";", __XHPROF_GERAMAN_SERVERS) as $server) {
+    foreach (explode(";", $GLOBALS['AX_GEARMAN_SERVER']) as $server) {
         list($host, $port) = explode(":", $server);
         $gm->addServer($host, $port);
     }
-    $gm->doBackground($action, $data);
+    @$gm->doBackground($action, $data);
     if ($gm->returnCode() == GEARMAN_SUCCESS) {
         return true;
     }
     return false;
 }
 
-function default_shutdown_handler() { // 默认shutdown处理函数，计算出页面执行时间，xhprof打开，超过定义的秒数记录到MySQL
-    global $page_start_time, $xhprof_running;
-    $page_run_time = (getmicrotime() - $page_start_time) * 1000;
-    $error = error_get_last();
-    if (!empty($error)) {
-        xhprof_stop($error);
-        echo "\n<!-- page has error -->\n";
-        return 0;
+function default_shutdown_handler() { // 默认shutdown处理函数
+    // 匹配不需要记录的关键字
+    foreach (explode(";", $GLOBALS['AX_XHPROF_IGNORE']) as $r) {
+        if (strpos($_SERVER['PHP_SELF'], $r) !== false) {
+            return false;
+        }
     }
-    // 如果xhprof运行，并超时，停止分析并记录
-    if ($xhprof_running && $page_run_time >= __XHPROF_SAVE_TIMEOUT * 1000) {
-        xhprof_stop();
+    // phpmyadmin获取不到$GLOBALS值
+    if (empty($GLOBALS['AX_PAGE_START_TIME'])) {
+        return false;
     }
-    printf("\n<!-- page runtime: %.3f ms -->\n", $page_run_time);
-    return 0;
+    $GLOBALS['AX_PAGE_END_TIME'] = getmicrotime();
+    printf("\n<!-- page run time: %.3f ms, xhprof: %d -->\n", $GLOBALS['AX_PAGE_END_TIME']-$GLOBALS['AX_PAGE_START_TIME'], $GLOBALS['AX_XHPROF_IS_RUN']);
+    // 停止xhprof
+    xhprof_stop();
 }
 
-/* Class: XHProfRuns_MySQL
- *   保存数据到MySQL，覆盖自带的Default保存方式。
- */
-class XHProfRuns_MySQL implements iXHProfRuns {
+
+class SimpleDB {
 
     private $db = null;
 
     public function __construct() {
-        $db = mysql_connect(__XHPROF_MYSQL_HOST, __XHPROF_MYSQL_USER, __XHPROF_MYSQL_PASS);
-        if ($db) {
-            mysql_select_db(__XHPROF_MYSQL_DB);
-            $this->db = $db;
-            // 如果表不存在
-            mysql_query($GLOBALS['XHPROF_LOG_SQL']);
-            mysql_query($GLOBALS['XHPROF_ERROR_SQL']);
+        try {
+            $this->db = new PDO($GLOBALS['AX_DATABASE_DSN'], $GLOBALS['AX_DATABASE_USER'], $GLOBALS['AX_DATABASE_PASS']);
+        } catch (PDOException $e) {
+            $this->db = null;
         }
+    }
+
+    public function query($sql) {
+        $rows = $this->db->query($sql);
+        if (empty($rows)) {
+            return null;
+        }
+        return $rows->fetchAll();
+    }
+
+    public function execute($sql) {
+        return $this->db->exec($sql);
+    }
+
+    public function quote($str) {
+        return $this->db->quote($str);
+    }
+
+    public function close() {
+        $this->db = null;
+    }
+}
+
+class XHProfRuns_DB implements iXHProfRuns {
+
+    private $db = null;
+
+    public function __construct() {
+        $this->db = new SimpleDB();
     }
 
     public function get_run($run_id, $type, &$run_desc) {
         if ($this->db != null) {
-            $sql   = "SELECT data FROM xhprof_log WHERE run_id='$run_id'";
-            $query = mysql_query($sql);
-            $rows  = mysql_fetch_array($query, MYSQL_NUM);
-            mysql_close();
-            if ($rows == null || !is_array($rows) || count($rows) == 0) {
+            $sql   = "SELECT data FROM ax_xhprof WHERE id='$run_id'";
+            $rows  = $this->db->query($sql);
+            if ($rows == null) {
                 die("[ERROR] invalid run id: $run_id, record not found.");
             }
             $run_desc = "XHProf Run (Namespace=$type)";
-            return unserialize($rows[0]);
+            return unserialize($rows[0]['data']);
         }
         die("[ERROR] invalid run id: $run_id, MySQL connect error.");
     }
 
-    public function save_run($xhprof_data, $type, $run_id = null) {
+    public function save_run($data, $type = null, $run_id = null) {
         if ($this->db != null) {
-            $run_id = uniqid();
-            $sql = sprintf("INSERT INTO xhprof_log(run_id, url, runtime, data, optime) VALUES ('%s', '%s', '%.2f', '%s', NOW())",
-                $run_id, $type, $xhprof_data['runtime'], serialize($xhprof_data['data']));
-            mysql_query($sql);
-            if (!empty($xhprof_data['error'])) {
-                $e = $xhprof_data['error'];
-                $sql = sprintf("INSERT INTO xhprof_error(type, message, file, line, optime) VALUES (%d, '%s', '%s', %d, NOW())",
-                    $e['type'], mysql_escape_string($e['message']), mysql_escape_string($e['file']), $e['line']);
-                mysql_query($sql);
+            $run_id    = uniqid();
+            $error_id  = '';
+            $xhprof_id = '';
+            $host         = $data['host'];
+            $uri          = $data['uri'];
+            $resp_time    = $data['resp_time'];
+            $client_time  = $data['client_time'];
+            if (!empty($data['error'])) {
+                $error_id = $run_id;
+                $error = $data['error'];
+                $sql      = sprintf("INSERT INTO ax_error(id, type, message, file, line) VALUES ('%s', %d, %s, '%s', %d)",
+                    $run_id, $error['type'], $this->db->quote($error['message']), $error['file'], $error['line']);
+                $this->db->execute($sql);
+
             }
-            mysql_close();
+            if (!empty($data['xhprof'])) {
+                $xhprof_id = $run_id;
+                $type      = $host . $uri;
+                $xhprof    = $data['xhprof'];
+                $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, serialize($xhprof));
+                $this->db->execute($sql);
+            }
+            $sql = sprintf("INSERT INTO ax_log(host, uri, resp_time, error_id, xhprof_id, client_time, log_time) 
+                VALUES('%s', '%s', %s, '%s', '%s', '%s', NOW())", $host, $uri, $resp_time, $error_id, $xhprof_id, $client_time);
+            $this->db->execute($sql);
             return $run_id;
         }
         die("[ERROR] invalid run id: $run_id, MySQL connect error.");
@@ -143,7 +196,7 @@ class XHProfRuns_MySQL implements iXHProfRuns {
 register_shutdown_function('default_shutdown_handler');
 
 // 定义全局auto，执行start
-if (defined('__XHPROF_AUTO_START') && __XHPROF_AUTO_START) {
+if ($GLOBALS['AX_XHPROF_AUTOSTART'] == 1) {
     xhprof_start();
 }
 ?>

@@ -79,7 +79,7 @@ if (!array_key_exists($type, $xhprof_legal_image_types)) {
   $type = $params['type'][1]; // default image type.
 }
 
-$xhprof_runs_impl = new XHProfRuns_MySQL();
+$xhprof_runs_impl = new XHProfRuns_DB();
 //$xhprof_runs_impl = new XHProfRuns_Default();
 
 if (!empty($run)) {
