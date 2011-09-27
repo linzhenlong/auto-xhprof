@@ -4,8 +4,6 @@ auto xhprof
 
 通过在php.ini全局预加载脚本，实现自动记录错误和性能分析数据到数据库。如支持Gearman，则异步保存数据。
 
-![](https://github.com/smallfish/auto-xhprof/raw/master/auto-xhprof-1.png)
-
 依赖软件：
 
     XHProf                  http://pecl.php.net/package/xhprof
