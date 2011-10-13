@@ -1,6 +1,7 @@
 <html>
 <head>
-<title>XHPorf List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Auto-XHPorf List</title>
 <style>
 body {margin: 10px;}
 td {font-size:12px;word-break: break-all;}
@@ -29,10 +30,10 @@ $err = array(
     32767 => 'E_ALL'
 );
 ?>
-<h4>XHProf List</h4>
+<h4>Auto-XHProf List</h4>
 <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#AAA">
 <tr bgcolor="#CCC">
-<td width="5%">Id</td><td width="25%">Url</td><td width="8%">Response time</td><td>Error</td><td width="10%">XHProf</td><td width="10%">Visit time</td></tr>
+<td width="5%">编号</td><td width="25%">URL地址</td><td width="8%">响应时间</td><td>错误描述</td><td width="10%">性能详细</td><td width="10%">访问时间</td></tr>
 <?php
 $rows = $db->query("SELECT * FROM ax_log ORDER BY id DESC");
 if ($rows) {
