@@ -54,7 +54,7 @@ function xhprof_stop() { // 关闭xhprof
     if (!empty($error) || $GLOBALS['AX_XHPROF_IS_RUN'] || $resp_time >= $GLOBALS['AX_XHPROF_TIMEOUT']) {
         $data = array();
         $data['host']        = $_SERVER['HTTP_HOST'];
-        $data['uri']         = $_SERVER['PHP_SELF'];
+        $data['uri']         = $_SERVER['REQUEST_URI'];
         $data['client_time'] = date('Y-m-d H:i:s');
         $data['resp_time']   = $resp_time;
         $data['xhprof']      = null;
