@@ -32,7 +32,7 @@ $err = array(
 <h4>XHProf List</h4>
 <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#AAA">
 <tr bgcolor="#CCC">
-<td width="5%">Id</td><td width="20%">Url</td><td width="10%">Response time</td><td>Error</td><td width="10%">XHProf</td><td width="10%">Visit time</td></tr>
+<td width="5%">Id</td><td width="25%">Url</td><td width="8%">Response time</td><td>Error</td><td width="10%">XHProf</td><td width="10%">Visit time</td></tr>
 <?php
 $rows = $db->query("SELECT * FROM ax_log ORDER BY id DESC");
 if ($rows) {
@@ -48,7 +48,7 @@ if ($rows) {
         if (!empty($xhprof_id)) {
             $xhprof_id = "<a href='xhprof/index.php?run=".$xhprof_id."'>".$xhprof_id."</a>";
         }
-        printf("<tr bgcolor='#FFF'><td>%s</td><td>http://%s</td><td>%s s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+        printf("<tr bgcolor='#FFF' valign='top'><td>%s</td><td>http://%s</td><td>%s s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
             $row['id'], $row['host'].$row['uri'], $row['resp_time'], $error_id, $xhprof_id, $row['client_time']);
     }
 }

@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS `ax_log` (
   `host` varchar(128) NOT NULL COMMENT 'host地址',
   `uri` varchar(256) NOT NULL COMMENT 'uri信息',
   `resp_time` float NOT NULL COMMENT '响应时间',
-  `has_error` varchar(64) NOT NULL COMMENT '是否有错误信息',
-  `has_xhprof` varchar(64) NOT NULL COMMENT '是否有xhprof数据',
+  `error_id` varchar(64) NOT NULL COMMENT '是否有错误信息',
+  `xhprof_id` varchar(64) NOT NULL COMMENT '是否有xhprof数据',
   `client_time` datetime NOT NULL COMMENT '客户端提交时间',
   `log_time` datetime NOT NULL COMMENT '数据写入时间',
   PRIMARY KEY (`id`)
