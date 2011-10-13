@@ -34,6 +34,6 @@ CREATE TABLE IF NOT EXISTS `ax_log` (
 CREATE TABLE IF NOT EXISTS `ax_xhprof` (
   `id` varchar(64) NOT NULL,
   `type` varchar(512) NOT NULL,
-  `data` text NOT NULL,
+  `data` longtext NOT NULL,
   PRIMARY KEY (`id`)
 );

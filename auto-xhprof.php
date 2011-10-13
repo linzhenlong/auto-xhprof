@@ -49,13 +49,14 @@ function xhprof_start() { // 打开xhprof
 
 function xhprof_stop() { // 关闭xhprof
     global $gearman_enabled;
-    $error = error_get_last();
-    if (!empty($error) || $GLOBALS['AX_XHPROF_IS_RUN'] || $page_run_time >= $GLOBALS['AX_XHPROF_TIMEOUT']) {
+    $error       = error_get_last();
+    $resp_time   = sprintf("%.4f", $GLOBALS['AX_PAGE_END_TIME'] - $GLOBALS['AX_PAGE_START_TIME']);
+    if (!empty($error) || $GLOBALS['AX_XHPROF_IS_RUN'] || $resp_time >= $GLOBALS['AX_XHPROF_TIMEOUT']) {
         $data = array();
         $data['host']        = $_SERVER['HTTP_HOST'];
         $data['uri']         = $_SERVER['PHP_SELF'];
         $data['client_time'] = date('Y-m-d H:i:s');
-        $data['resp_time']   = sprintf("%.4f", $GLOBALS['AX_PAGE_END_TIME'] - $GLOBALS['AX_PAGE_START_TIME']);
+        $data['resp_time']   = $resp_time;
         $data['xhprof']      = null;
         if ($GLOBALS['AX_XHPROF_IS_RUN']) {
             $data['xhprof'] = xhprof_disable();
