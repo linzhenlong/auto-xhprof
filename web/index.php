@@ -33,9 +33,9 @@ $err = array(
 <h4>Auto-XHProf List</h4>
 <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#AAA">
 <tr bgcolor="#CCC">
-<td width="5%">编号</td><td width="25%">URL地址</td><td width="8%">响应时间</td><td>错误描述</td><td width="10%">性能详细</td><td width="10%">访问时间</td></tr>
+<td width="5%">ID</td><td width="25%">URL</td><td width="8%">Resp Time</td><td>Error Desc</td><td width="10%">Profile</td><td width="10%">Client Time</td></tr>
 <?php
-$rows = $db->query("SELECT * FROM ax_log ORDER BY id DESC");
+$rows = $db->query("SELECT * FROM ax_log ORDER BY id DESC LIMIT 100");
 if ($rows) {
     foreach ($rows as $row){
         $error_id  = $row['error_id'];
@@ -43,7 +43,7 @@ if ($rows) {
         if (!empty($error_id)) {
             $error = $db->query("SELECT * FROM ax_error WHERE id='".$error_id."'");
             if ($error != null) {
-                $error_id = "<b>".$err[$error[0]['type']].":</b> ".$error[0]['message']." in <b>".$error[0]['file']."</b> on line <b>".$error[0]['line']."</b>";
+                $error_id = "<font color='red'>".$err[$error[0]['type']].":</font> ".$error[0]['message']." in ".$error[0]['file']." on line <b>".$error[0]['line']."</b>";
             }
         }
         if (!empty($xhprof_id)) {
