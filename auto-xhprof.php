@@ -1,5 +1,4 @@
 <?php
-
 define('__XHPROF_DIR',     dirname(__FILE__));
 define('__XHPROF_LIB_DIR', __XHPROF_DIR . '/xhprof_lib/');
 
@@ -12,7 +11,7 @@ function getmicrotime() { // 获取毫秒
 }
 
 $GLOBALS['AX_PAGE_START_TIME'] = getmicrotime();  // 页面启动时间
-$GLOBALS['AX_XHPROF_IS_RUN']   = false;           // 当前页面是否启动xhprof
+$GLOBALS['AX_XHPROF_IS_RUN']   = true;           // 当前页面是否启动xhprof
 
 // 获取ini中相关配置信息
 $ax_ini    = parse_ini_file(__XHPROF_DIR . '/auto-xhprof.ini', true);
@@ -64,6 +63,7 @@ function xhprof_stop() { // 关闭xhprof
         }
         $data['error']     = $error;
         // 检查是否安装gearman扩展，并已设置gearman server
+        /**
         if ($gearman_enabled) {
             $ret = do_background_job('xhprof.write', serialize($data));
             echo "\n<!-- gearman save: $ret -->\n";
@@ -72,6 +72,10 @@ function xhprof_stop() { // 关闭xhprof
             $run_id     = $xhprof_run->save_run($data);
             echo "\n<!-- xhprof save, id: $run_id -->\n";
         }
+         * */
+        $xhprof_run = new XHProfRuns_DB();
+        $run_id     = $xhprof_run->save_run($data);
+        echo "\n<!-- xhprof save, id: $run_id -->\n";
     }
 }
 
@@ -181,9 +185,15 @@ class XHProfRuns_DB implements iXHProfRuns {
                 $xhprof_id = $run_id;
                 $type      = $host . $uri;
                 $xhprof    = $data['xhprof'];
+<<<<<<< HEAD
                 $xhprof = str_replace("'","\"",serialize($xhprof));
                 $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, $xhprof);
                 $this->db->execute($sql);
+=======
+                $xhprof = str_replace("'","\"" ,(serialize($xhprof)));
+                $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, $xhprof);
+               $this->db->execute($sql);
+>>>>>>> FETCH_HEAD
             }
             $sql = sprintf("INSERT INTO ax_log(host, uri, resp_time, error_id, xhprof_id, client_time, log_time) 
                 VALUES('%s', '%s', %s, '%s', '%s', '%s', NOW())", $host, $uri, $resp_time, $error_id, $xhprof_id, $client_time);

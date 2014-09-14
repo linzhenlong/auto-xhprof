@@ -37,7 +37,6 @@
 
 // include_once $GLOBALS['XHPROF_LIB_ROOT'].'/display/xhprof.php';
 include_once __XHPROF_LIB_DIR.'/display/xhprof.php';
-
 // param name, its type, and default value
 $params = array('run'        => array(XHPROF_STRING_PARAM, ''),
                 'wts'        => array(XHPROF_STRING_PARAM, ''),
@@ -65,6 +64,7 @@ foreach ($params as $k => $v) {
     unset($params[$k]);
   }
 }
+
 
 echo "<html>";
 
