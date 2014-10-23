@@ -186,7 +186,7 @@ class XHProfRuns_DB implements iXHProfRuns {
                 $xhprof_id = $run_id;
                 $type      = $host . $uri;
                 $xhprof    = $data['xhprof'];
-                $xhprof = str_replace("'","\"" ,(iconv('gbk','utf-8',serialize($xhprof))));
+                $xhprof = str_replace("'","\"" ,(serialize($xhprof)));
                 $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, $xhprof);
                $this->db->execute($sql);
             }
