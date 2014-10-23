@@ -75,7 +75,7 @@ function xhprof_stop() { // 关闭xhprof
          * */
         $xhprof_run = new XHProfRuns_DB();
         $run_id     = $xhprof_run->save_run($data);
-        echo "\n<!-- xhprof save, id: $run_id -->\n";
+        //echo "\n<!-- xhprof save, id: $run_id -->\n";
     }
 }
 
@@ -104,7 +104,7 @@ function default_shutdown_handler() { // 默认shutdown处理函数
         return false;
     }
     $GLOBALS['AX_PAGE_END_TIME'] = getmicrotime();
-    printf("\n<!-- page run time: %.3f ms, xhprof: %d -->\n", $GLOBALS['AX_PAGE_END_TIME']-$GLOBALS['AX_PAGE_START_TIME'], $GLOBALS['AX_XHPROF_IS_RUN']);
+    //printf("\n<!-- page run time: %.3f ms, xhprof: %d -->\n", $GLOBALS['AX_PAGE_END_TIME']-$GLOBALS['AX_PAGE_START_TIME'], $GLOBALS['AX_XHPROF_IS_RUN']);
     // 停止xhprof
     xhprof_stop();
 }
@@ -159,7 +159,8 @@ class XHProfRuns_DB implements iXHProfRuns {
                 die("[ERROR] invalid run id: $run_id, record not found.");
             }
             $run_desc = "XHProf Run (Namespace=$type)";
-            return unserialize($rows[0]['data']);
+
+            return unserialize(preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $rows[0]['data'] ));
         }
         die("[ERROR] invalid run id: $run_id, MySQL connect error.");
     }
@@ -185,7 +186,7 @@ class XHProfRuns_DB implements iXHProfRuns {
                 $xhprof_id = $run_id;
                 $type      = $host . $uri;
                 $xhprof    = $data['xhprof'];
-                $xhprof = str_replace("'","\"" ,(serialize($xhprof)));
+                $xhprof = str_replace("'","\"" ,(iconv('gbk','utf-8',serialize($xhprof))));
                 $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, $xhprof);
                $this->db->execute($sql);
             }

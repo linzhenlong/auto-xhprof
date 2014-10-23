@@ -1,0 +1,490 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+ChildRowToolTip	web/xhprof/js/xhprof_report.js	/^function ChildRowToolTip(cell, metric)$/;"	f
+Limitations	web/xhprof/docs/index.html	/^<a name="Limitations"><\/a><h2>Limitations<\/h2>$/;"	a
+Naming_convention_for_special_functions	web/xhprof/docs/index.html	/^<a name="Naming_convention_for_special_functions"><\/a><h2>Naming convention for special functions<\/h2>$/;"	a
+ParentRowToolTip	web/xhprof/js/xhprof_report.js	/^function ParentRowToolTip(cell, metric)$/;"	f
+SimpleDB	auto-xhprof.php	/^class SimpleDB {$/;"	c
+Terminology	web/xhprof/docs/index.html	/^<a name="Terminology"><\/a><h2>Terminology<\/h2>$/;"	a
+XHPROF_BOOL_PARAM	xhprof_lib/utils/xhprof_lib.php	/^define('XHPROF_BOOL_PARAM',   4);$/;"	d
+XHPROF_FLOAT_PARAM	xhprof_lib/utils/xhprof_lib.php	/^define('XHPROF_FLOAT_PARAM',  3);$/;"	d
+XHPROF_STRING_PARAM	xhprof_lib/utils/xhprof_lib.php	/^define('XHPROF_STRING_PARAM', 1);$/;"	d
+XHPROF_UINT_PARAM	xhprof_lib/utils/xhprof_lib.php	/^define('XHPROF_UINT_PARAM',   2);$/;"	d
+XHProfRuns_DB	auto-xhprof.php	/^class XHProfRuns_DB implements iXHProfRuns {$/;"	c
+XHProfRuns_Default	xhprof_lib/utils/xhprof_runs.php	/^class XHProfRuns_Default implements iXHProfRuns {$/;"	c
+__XHPROF_DIR	auto-xhprof.php	/^define('__XHPROF_DIR',     dirname(__FILE__));$/;"	d
+__XHPROF_LIB_DIR	auto-xhprof.php	/^define('__XHPROF_LIB_DIR', __XHPROF_DIR . '\/xhprof_lib\/');$/;"	d
+add	web/xhprof/jquery/jquery-1.2.6.js	/^	function add(l, t) {$/;"	f
+add	web/xhprof/jquery/jquery.autocomplete.js	/^	function add(q, value) {$/;"	f
+addCommas	web/xhprof/js/xhprof_report.js	/^function addCommas(nStr)$/;"	f
+all	xhprof_lib/display/xhprof.php	/^    $all = false;$/;"	v
+all	xhprof_lib/display/xhprof.php	/^    $all = true;$/;"	v
+arrow_size	xhprof_lib/utils/callgraph_utils.php	/^      $arrow_size = 1;$/;"	v
+autoFill	web/xhprof/jquery/jquery.autocomplete.js	/^	function autoFill(q, sValue){$/;"	f
+avg_info1	xhprof_lib/display/xhprof.php	/^        $avg_info1 = ($symbol_info1[$m]\/$symbol_info1['ct']);$/;"	v
+avg_info1	xhprof_lib/display/xhprof.php	/^      $avg_info1 = 'N\/A';$/;"	v
+avg_info2	xhprof_lib/display/xhprof.php	/^        $avg_info2 = ($symbol_info2[$m]\/$symbol_info2['ct']);$/;"	v
+avg_info2	xhprof_lib/display/xhprof.php	/^      $avg_info2 = 'N\/A';$/;"	v
+ax_config	auto-xhprof.php	/^$ax_config = $ax_ini['auto_xhprof'];$/;"	v
+ax_ini	auto-xhprof.php	/^$ax_ini    = parse_ini_file(__XHPROF_DIR . '\/auto-xhprof.ini', true);$/;"	v
+bad_runs	xhprof_lib/utils/xhprof_lib.php	/^  $bad_runs = array();$/;"	v
+bar	web/xhprof/docs/index.html	/^function bar($x) {$/;"	f
+base_ct	xhprof_lib/display/xhprof.php	/^    $base_ct = $symbol_info["ct"];$/;"	v
+base_ct	xhprof_lib/display/xhprof.php	/^    $base_ct = 0;$/;"	v
+base_ct	xhprof_lib/display/xhprof.php	/^  $base_ct = 0;$/;"	v
+base_path	xhprof_lib/display/xhprof.php	/^$base_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), "\/");$/;"	v
+base_url_params	xhprof_lib/display/xhprof.php	/^    $base_url_params = xhprof_array_unset($base_url_params, 'run1');$/;"	v
+base_url_params	xhprof_lib/display/xhprof.php	/^    $base_url_params = xhprof_array_unset($base_url_params, 'run2');$/;"	v
+base_url_params	xhprof_lib/display/xhprof.php	/^    $base_url_params = xhprof_array_unset(xhprof_array_unset($url_params,$/;"	v
+base_url_params	xhprof_lib/display/xhprof.php	/^  $base_url_params = xhprof_array_unset(xhprof_array_unset($url_params,$/;"	v
+bindReady	web/xhprof/jquery/jquery-1.2.6.js	/^function bindReady(){$/;"	f
+border	web/xhprof/jquery/jquery-1.2.6.js	/^	function border(elem) {$/;"	f
+callgraph_href	xhprof_lib/display/xhprof.php	/^  $callgraph_href = "$base_path\/callgraph.php?"$/;"	v
+callgraph_report_title	xhprof_lib/display/xhprof.php	/^    $callgraph_report_title = '[View Full Callgraph]';$/;"	v
+callgraph_report_title	xhprof_lib/display/xhprof.php	/^    $callgraph_report_title = '[View Regressions\/Improvements using Callgraph Diff]';$/;"	v
+child	xhprof_lib/utils/xhprof_lib.php	/^          $child =substr($parent_child, 9);$/;"	v
+children_table	xhprof_lib/utils/callgraph_utils.php	/^    $children_table = xhprof_get_children_table($raw_data);$/;"	v
+children_table	xhprof_lib/utils/callgraph_utils.php	/^  $children_table = array();$/;"	v
+children_table1	xhprof_lib/utils/callgraph_utils.php	/^  $children_table1 = xhprof_get_children_table($raw_data1);$/;"	v
+children_table2	xhprof_lib/utils/callgraph_utils.php	/^  $children_table2 = xhprof_get_children_table($raw_data2);$/;"	v
+class	xhprof_lib/display/xhprof.php	/^        $class = $vgbar; \/\/ green (improvement)$/;"	v
+class	xhprof_lib/display/xhprof.php	/^        $class = $vrbar; \/\/ red (regression)$/;"	v
+class	xhprof_lib/display/xhprof.php	/^      $class = $vbbar; \/\/ blue$/;"	v
+class	xhprof_lib/display/xhprof.php	/^    $class = $vbar;  \/\/ default (black)$/;"	v
+class	xhprof_lib/display/xhprof.php	/^  $class = get_print_class($num, $bold);$/;"	v
+class	xhprof_lib/display/xhprof.php	/^  $class = get_print_class($numer, $bold);$/;"	v
+client_time	auto-xhprof.php	/^            $client_time  = $data['client_time'];$/;"	v
+cmd	xhprof_lib/utils/callgraph_utils.php	/^  $cmd = " dot -T".$type;$/;"	v
+color	web/xhprof/jquery/jquery-1.2.6.js	/^		function color( elem ) {$/;"	f
+column_index	xhprof_lib/display/xhprof.php	/^  $column_index = 3; \/\/ First three columns are Func Name, Calls, Calls%$/;"	v
+complete	web/xhprof/jquery/jquery-1.2.6.js	/^		function complete(){$/;"	f
+complete	web/xhprof/jquery/jquery.tooltip.js	/^		function complete() {$/;"	f
+content	xhprof_lib/utils/callgraph_utils.php	/^  $content = xhprof_generate_image_by_dot($script, $type);$/;"	v
+content	xhprof_lib/utils/callgraph_utils.php	/^  $content = xhprof_get_content_by_run($xhprof_runs_impl, $run_id, $type,$/;"	v
+contents	xhprof_lib/utils/xhprof_runs.php	/^    $contents = file_get_contents($file_name);$/;"	v
+createHelper	web/xhprof/jquery/jquery.tooltip.js	/^	function createHelper(settings) {$/;"	f
+credits	web/xhprof/docs/index.html	/^<li><a name="credits"><h2>Acknowledgements<\/h2><\/a>$/;"	a
+cur_id	xhprof_lib/utils/callgraph_utils.php	/^  $cur_id = 0; $max_wt = 0;$/;"	v
+data	auto-xhprof.php	/^        $data = array();$/;"	v
+data	gearman-worker.php	/^    $data = unserialize($job->workload());$/;"	v
+data	xhprof_lib/display/xhprof.php	/^      $data = xhprof_aggregate_runs($xhprof_runs_impl,$/;"	v
+db	web/index.php	/^$db = new SimpleDB();$/;"	v
+default_shutdown_handler	auto-xhprof.php	/^function default_shutdown_handler() { \/\/ 默认shutdown处理函数$/;"	f
+dependencies	web/xhprof/docs/index.html	/^<li><a name="dependencies"><h2>Dependencies<\/h2><\/a><\/li>$/;"	a
+desc	xhprof_lib/display/xhprof.php	/^    $desc = stat_description($stat);$/;"	v
+desc	xhprof_lib/display/xhprof.php	/^  $desc = str_replace("<br>", " ", $descriptions[$sort_col]);$/;"	v
+desc	xhprof_lib/display/xhprof.php	/^  $desc = str_replace("<br>", " ", stat_description($stat));$/;"	v
+description	xhprof_lib/display/xhprof.php	/^      $description = $data['description'];$/;"	v
+descriptions	xhprof_lib/display/xhprof.php	/^$descriptions = array($/;"	v
+descriptorspec	xhprof_lib/utils/callgraph_utils.php	/^  $descriptorspec = array($/;"	v
+diff_descriptions	xhprof_lib/display/xhprof.php	/^$diff_descriptions = array($/;"	v
+diff_mode	xhprof_lib/display/xhprof.php	/^  $diff_mode = $diff_report;$/;"	v
+diff_mode	xhprof_lib/display/xhprof.php	/^$diff_mode = false;$/;"	v
+diff_text	xhprof_lib/display/xhprof.php	/^    $diff_text = "";$/;"	v
+diff_text	xhprof_lib/display/xhprof.php	/^    $diff_text = "<b>Diff<\/b>";$/;"	v
+diff_text	xhprof_lib/display/xhprof.php	/^    $diff_text = "Diff";$/;"	v
+diff_text	xhprof_lib/display/xhprof.php	/^    $diff_text = "Run";$/;"	v
+dir	xhprof_lib/utils/xhprof_runs.php	/^        $dir = "\/tmp";$/;"	v
+dir	xhprof_lib/utils/xhprof_runs.php	/^      $dir = ini_get("xhprof.output_dir");$/;"	v
+displayXHProfReport	xhprof_lib/display/xhprof.php	/^function displayXHProfReport($xhprof_runs_impl, $url_params, $source,$/;"	f
+display_calls	xhprof_lib/display/xhprof.php	/^    $display_calls = false;$/;"	v
+display_calls	xhprof_lib/display/xhprof.php	/^    $display_calls = true;$/;"	v
+display_calls	xhprof_lib/display/xhprof.php	/^$display_calls = true;$/;"	v
+display_link	xhprof_lib/display/xhprof.php	/^    $display_link = "";$/;"	v
+display_link	xhprof_lib/display/xhprof.php	/^    $display_link = xhprof_render_link(" [ <b class=bubble>display all <\/b>]",$/;"	v
+do_background_job	auto-xhprof.php	/^function do_background_job($action, $data) { \/\/ 保存数据到gearman，异步执行$/;"	f
+err	web/index.php	/^$err = array($/;"	v
+error	auto-xhprof.php	/^                $error = $data['error'];$/;"	v
+error	auto-xhprof.php	/^    $error       = error_get_last();$/;"	v
+error	web/index.php	/^            $error = $db->query("SELECT * FROM ax_error WHERE id='".$error_id."'");$/;"	v
+error_id	auto-xhprof.php	/^                $error_id = $run_id;$/;"	v
+error_id	auto-xhprof.php	/^            $error_id  = '';$/;"	v
+error_id	web/index.php	/^                $error_id = "<font color='red'>".$err[$error[0]['type']].":<\/font> ".$error[0]['message']." in ".$error[0]['file']." on line <b>".$error[0]['line']."<\/b>";$/;"	v
+error_id	web/index.php	/^        $error_id  = $row['error_id'];$/;"	v
+evalScript	web/xhprof/jquery/jquery-1.2.6.js	/^function evalScript( i, elem ) {$/;"	f
+exclusive	web/xhprof/docs/index.html	/^<a name="exclusive"><\/a><li><b>Exclusive Time\/Self Time<\/b>: Measures$/;"	a
+file	xhprof_lib/utils/xhprof_runs.php	/^      $file = $this->dir . "\/" . $file;$/;"	v
+file	xhprof_lib/utils/xhprof_runs.php	/^    $file = "$run_id.$type";$/;"	v
+file	xhprof_lib/utils/xhprof_runs.php	/^    $file = fopen($file_name, 'w');$/;"	v
+file_name	xhprof_lib/utils/xhprof_runs.php	/^    $file_name = $this->file_name($run_id, $type);$/;"	v
+fillList	web/xhprof/jquery/jquery.autocomplete.js	/^	function fillList() {$/;"	f
+fillcolor	xhprof_lib/utils/callgraph_utils.php	/^        $fillcolor = ", style=filled, fillcolor=yellow";$/;"	v
+fillcolor	xhprof_lib/utils/callgraph_utils.php	/^    $fillcolor = (($sizing_factor < 1.5) ?$/;"	v
+findValueCallback	web/xhprof/jquery/jquery.autocomplete.js	/^		function findValueCallback(q, data) {$/;"	f
+flat_data	xhprof_lib/display/xhprof.php	/^  $flat_data = array();$/;"	v
+flat_info	xhprof_lib/utils/xhprof_lib.php	/^  $flat_info = xhprof_compute_inclusive_times($raw_data);$/;"	v
+flush	web/xhprof/jquery/jquery.autocomplete.js	/^	function flush(){$/;"	f
+fontsize	xhprof_lib/utils/callgraph_utils.php	/^    $fontsize =", fontsize="$/;"	v
+foo	web/xhprof/docs/index.html	/^function foo() {$/;"	f
+format_cbk	xhprof_lib/display/xhprof.php	/^$format_cbk = array($/;"	v
+full_report	xhprof_lib/display/xhprof.php	/^function full_report($url_params, $symbol_tab, $sort, $run1, $run2) {$/;"	f
+func_base	xhprof_lib/display/xhprof.php	/^    $func_base = $symbol_info[str_replace("excl_", "", $stat)];$/;"	v
+function_map	xhprof_lib/utils/xhprof_lib.php	/^  $function_map = array_fill_keys($functions_to_keep, 1);$/;"	v
+functions	xhprof_lib/display/typeahead_common.php	/^  $functions = array($q);$/;"	v
+functions	xhprof_lib/display/typeahead_common.php	/^  $functions = array();$/;"	v
+functions	xhprof_lib/display/typeahead_common.php	/^  $functions = array_unique(array_merge($functions1, $functions2));$/;"	v
+functions	xhprof_lib/display/typeahead_common.php	/^  $functions = xhprof_get_matching_functions($q, $raw_data);$/;"	v
+functions1	xhprof_lib/display/typeahead_common.php	/^  $functions1 = xhprof_get_matching_functions($q, $raw_data);$/;"	v
+functions2	xhprof_lib/display/typeahead_common.php	/^  $functions2 = xhprof_get_matching_functions($q, $raw_data);$/;"	v
+gearman_enabled	auto-xhprof.php	/^    $gearman_enabled = false;$/;"	v
+gearman_enabled	auto-xhprof.php	/^$gearman_enabled = module_enabled('gearman'); \/\/ 检查gearman模块是否可用$/;"	v
+getWH	web/xhprof/jquery/jquery-1.2.6.js	/^			function getWH() {$/;"	f
+get_ini_value	auto-xhprof.php	/^function get_ini_value($ini, $key) {$/;"	f
+get_print_class	xhprof_lib/display/xhprof.php	/^function get_print_class($num, $bold) {$/;"	f
+get_tooltip_attributes	xhprof_lib/display/xhprof.php	/^function get_tooltip_attributes($type, $metric) {$/;"	f
+getmicrotime	auto-xhprof.php	/^function getmicrotime() { \/\/ 获取毫秒$/;"	f
+gm	auto-xhprof.php	/^    $gm = new GearmanClient();$/;"	v
+handle	web/xhprof/jquery/jquery.tooltip.js	/^	function handle(event) {$/;"	f
+header	xhprof_lib/display/xhprof.php	/^      $header = $desc;$/;"	v
+header	xhprof_lib/display/xhprof.php	/^      $header = xhprof_render_link($desc, $href);$/;"	v
+headlabel	xhprof_lib/utils/callgraph_utils.php	/^      $headlabel = $sym_table[$child]["wt"] > 0 ?$/;"	v
+height	xhprof_lib/utils/callgraph_utils.php	/^    $height = ", height=".sprintf("%.1f", $max_height \/ $sizing_factor);$/;"	v
+hide	web/xhprof/jquery/jquery.tooltip.js	/^	function hide(event) {$/;"	f
+hideResults	web/xhprof/jquery/jquery.autocomplete.js	/^	function hideResults() {$/;"	f
+hideResultsNow	web/xhprof/jquery/jquery.autocomplete.js	/^	function hideResultsNow() {$/;"	f
+host	auto-xhprof.php	/^            $host         = $data['host'];$/;"	v
+href	xhprof_lib/display/xhprof.php	/^      $href = "$base_path\/?" .$/;"	v
+href	xhprof_lib/display/xhprof.php	/^      $href = "$base_path\/?"$/;"	v
+href	xhprof_lib/display/xhprof.php	/^    $href = "$base_path\/?" .$/;"	v
+href	xhprof_lib/display/xhprof.php	/^  $href = "$base_path\/?" .$/;"	v
+href1	xhprof_lib/display/xhprof.php	/^    $href1 = "$base_path?"$/;"	v
+href1	xhprof_lib/display/xhprof.php	/^    $href1 = "$base_path\/?" .$/;"	v
+href2	xhprof_lib/display/xhprof.php	/^    $href2 = "$base_path?"$/;"	v
+href2	xhprof_lib/display/xhprof.php	/^    $href2 = "$base_path\/?" .$/;"	v
+include_funcs	web/xhprof/docs/index.html	/^<a name="include_funcs"><\/a>$/;"	a
+inclusive	web/xhprof/docs/index.html	/^<a name="inclusive"><\/a><li><b>Inclusive Time (or Subtree Time)<\/b>:$/;"	a
+info1	xhprof_lib/display/xhprof.php	/^      $info1 = isset($symbol_tab1[$rep_symbol]) ?$/;"	v
+info2	xhprof_lib/display/xhprof.php	/^      $info2 = isset($symbol_tab2[$rep_symbol]) ?$/;"	v
+info_tmp	xhprof_lib/display/xhprof.php	/^      $info_tmp = $info;$/;"	v
+ini_file	web/xhprof/docs/index.html	/^<p><a name="ini_file"><\/a><b>php.ini file<\/b>: You can update your$/;"	a
+init	web/xhprof/jquery/jquery.autocomplete.js	/^	function init() {$/;"	f
+init_metrics	xhprof_lib/display/xhprof.php	/^function init_metrics($xhprof_data, $rep_symbol, $sort, $diff_report = false) {$/;"	f
+installation	web/xhprof/docs/index.html	/^<li><a name="installation"><h2>Installing the XHProf Extension<\/h2><\/a>$/;"	a
+interested_funcs	xhprof_lib/utils/callgraph_utils.php	/^    $interested_funcs = array();$/;"	v
+introduction	web/xhprof/docs/index.html	/^<li><a name="introduction"><h2>Introduction<\/h2><\/a>$/;"	a
+inverted_params	xhprof_lib/display/xhprof.php	/^    $inverted_params = $url_params;$/;"	v
+isNegative	web/xhprof/js/xhprof_report.js	/^function isNegative(x) {$/;"	f
+label	xhprof_lib/utils/callgraph_utils.php	/^         $label = ", label=\\"".addslashes($symbol).$/;"	v
+label	xhprof_lib/utils/callgraph_utils.php	/^        $label = ", label=\\"".addslashes($symbol).$/;"	v
+label	xhprof_lib/utils/callgraph_utils.php	/^      $label = ", label=\\"".$name."\\\\nExcl: "$/;"	v
+label	xhprof_lib/utils/callgraph_utils.php	/^      $label = $info["ct"] == 1 ? $info["ct"]." call" : $info["ct"]." calls";$/;"	v
+lastWord	web/xhprof/jquery/jquery.autocomplete.js	/^	function lastWord(value) {$/;"	f
+left	xhprof_lib/display/xhprof.php	/^      $left = abs($left);$/;"	v
+left	xhprof_lib/display/xhprof.php	/^    $left = $a[$sort_col];$/;"	v
+left	xhprof_lib/display/xhprof.php	/^    $left = strtoupper($a["fn"]);$/;"	v
+left	xhprof_lib/utils/callgraph_utils.php	/^                                    $left=null) {$/;"	v
+limit	xhprof_lib/display/xhprof.php	/^    $limit = $size;$/;"	v
+limit	xhprof_lib/display/xhprof.php	/^    $limit = 0;    \/\/ display all rows$/;"	v
+limit	xhprof_lib/display/xhprof.php	/^    $limit = 100;  \/\/ display only limited number of rows$/;"	v
+limit	xhprof_lib/display/xhprof.php	/^    $limit = min($size, $limit);$/;"	v
+limit	xhprof_lib/display/xhprof.php	/^    $limit = min($size, abs($limit));$/;"	v
+limitNumberOfItems	web/xhprof/jquery/jquery.autocomplete.js	/^	function limitNumberOfItems(available) {$/;"	f
+linewidth	xhprof_lib/utils/callgraph_utils.php	/^        $linewidth = 10; $arrow_size=2;$/;"	v
+linewidth	xhprof_lib/utils/callgraph_utils.php	/^      $linewidth= 1;$/;"	v
+link	xhprof_lib/display/xhprof.php	/^    $link = '<a href="' . ($href) . '"';$/;"	v
+link	xhprof_lib/display/xhprof.php	/^    $link = '<span';$/;"	v
+links	xhprof_lib/display/xhprof.php	/^  $links = array();$/;"	v
+m	xhprof_lib/display/xhprof.php	/^      $m = "excl_" . $metric;$/;"	v
+m	xhprof_lib/display/xhprof.php	/^      $m = $metric;$/;"	v
+main_info	xhprof_lib/utils/xhprof_lib.php	/^  $main_info = $raw_data["main()"];$/;"	v
+matchSubset	web/xhprof/jquery/jquery.autocomplete.js	/^	function matchSubset(s, sub) {$/;"	f
+matches	xhprof_lib/utils/xhprof_lib.php	/^  $matches = array();$/;"	v
+max_child	xhprof_lib/utils/callgraph_utils.php	/^            $max_child = $child;$/;"	v
+max_child	xhprof_lib/utils/callgraph_utils.php	/^        $max_child = null;$/;"	v
+max_fontsize	xhprof_lib/utils/callgraph_utils.php	/^  $max_fontsize = 35;$/;"	v
+max_height	xhprof_lib/utils/callgraph_utils.php	/^  $max_height = 3.5;$/;"	v
+max_sizing_ratio	xhprof_lib/utils/callgraph_utils.php	/^  $max_sizing_ratio = 20;$/;"	v
+max_width	xhprof_lib/utils/callgraph_utils.php	/^  $max_width = 5;$/;"	v
+max_wt	xhprof_lib/utils/callgraph_utils.php	/^      $max_wt = abs($info["excl_wt"]);$/;"	v
+metric	xhprof_lib/utils/xhprof_lib.php	/^    $metric = "samples";$/;"	v
+metric	xhprof_lib/utils/xhprof_lib.php	/^    $metric = "wt";$/;"	v
+metrics	xhprof_lib/display/xhprof.php	/^$metrics = null;$/;"	v
+metrics	xhprof_lib/utils/xhprof_lib.php	/^  $metrics        = array();$/;"	v
+metrics	xhprof_lib/utils/xhprof_lib.php	/^  $metrics = array();$/;"	v
+metrics	xhprof_lib/utils/xhprof_lib.php	/^  $metrics = xhprof_get_metrics($raw_data);$/;"	v
+metrics	xhprof_lib/utils/xhprof_lib.php	/^  $metrics = xhprof_get_metrics($xhprof_data2);$/;"	v
+mime	xhprof_lib/utils/callgraph_utils.php	/^      $mime = 'application\/postscript';$/;"	v
+mime	xhprof_lib/utils/callgraph_utils.php	/^      $mime = 'image\/gif';$/;"	v
+mime	xhprof_lib/utils/callgraph_utils.php	/^      $mime = 'image\/jpeg';$/;"	v
+mime	xhprof_lib/utils/callgraph_utils.php	/^      $mime = 'image\/png';$/;"	v
+mime	xhprof_lib/utils/callgraph_utils.php	/^      $mime = false;$/;"	v
+misc	web/xhprof/docs/index.html	/^<li><a name="misc"><h2>Additional Features<\/h2><\/a><\/li>$/;"	a
+module_enabled	auto-xhprof.php	/^function module_enabled($module) { \/\/ 检查模块是否可用$/;"	f
+mouseoverct	xhprof_lib/display/xhprof.php	/^    $mouseoverct = get_tooltip_attributes($type, "ct");$/;"	v
+movePosition	web/xhprof/jquery/jquery.autocomplete.js	/^	function movePosition(step) {$/;"	f
+moveSelect	web/xhprof/jquery/jquery.autocomplete.js	/^	function moveSelect(step) {$/;"	f
+name	xhprof_lib/utils/callgraph_utils.php	/^      $name = addslashes($symbol)."\\\\nInc: ". sprintf("%.3f",$info["wt"]\/1000) .$/;"	v
+name	xhprof_lib/utils/callgraph_utils.php	/^      $name ="Total: ".($totals["wt"]\/1000.0)." ms\\\\n";$/;"	v
+new_raw_data	xhprof_lib/utils/xhprof_lib.php	/^  $new_raw_data = array();$/;"	v
+node	xhprof_lib/utils/callgraph_utils.php	/^        $node = $max_child;$/;"	v
+node	xhprof_lib/utils/callgraph_utils.php	/^        $node = null;$/;"	v
+node	xhprof_lib/utils/callgraph_utils.php	/^    $node = "main()";$/;"	v
+normalization_count	xhprof_lib/utils/xhprof_lib.php	/^    $normalization_count = $run_count;$/;"	v
+normalization_count	xhprof_lib/utils/xhprof_lib.php	/^    $normalization_count = array_sum($wts);$/;"	v
+now	web/xhprof/jquery/jquery-1.2.6.js	/^function now(){$/;"	f
+num	web/xhprof/jquery/jquery-1.2.6.js	/^function num(elem, prop) {$/;"	f
+num	xhprof_lib/display/xhprof.php	/^    $num = call_user_func($fmt_func, $num);$/;"	v
+num	xhprof_lib/display/xhprof.php	/^  $num = round($num, 3);$/;"	v
+odd_even	xhprof_lib/display/xhprof.php	/^    $odd_even = 1 - $odd_even;$/;"	v
+odd_even	xhprof_lib/display/xhprof.php	/^  $odd_even = 0;$/;"	v
+odd_even	xhprof_lib/display/xhprof.php	/^  $odd_even = 1 - $odd_even;$/;"	v
+old_functions	xhprof_lib/display/typeahead_common.php	/^  $old_functions = $functions;$/;"	v
+onChange	web/xhprof/jquery/jquery.autocomplete.js	/^	function onChange(crap, skipPrevCheck) {$/;"	f
+onclick	xhprof_lib/display/xhprof.php	/^                            $onclick='', $style='', $access='', $onmouseover='',$/;"	v
+onmouseout	xhprof_lib/display/xhprof.php	/^                            $onmouseout='', $onmousedown='') {$/;"	v
+out	xhprof_lib/display/xhprof.php	/^  $out = array( );$/;"	v
+output	xhprof_lib/utils/callgraph_utils.php	/^   $output = stream_get_contents($pipes[1]);$/;"	v
+overall_totals	xhprof_lib/utils/xhprof_lib.php	/^  $overall_totals = array( "ct" => 0,$/;"	v
+overview	web/xhprof/docs/index.html	/^<li><a name="overview"><h2>XHProf Overview<\/h2><\/a>$/;"	a
+p	xhprof_lib/utils/xhprof_lib.php	/^      $p = xhprof_get_bool_param($k, $v[1]);$/;"	v
+p	xhprof_lib/utils/xhprof_lib.php	/^      $p = xhprof_get_float_param($k, $v[1]);$/;"	v
+p	xhprof_lib/utils/xhprof_lib.php	/^      $p = xhprof_get_string_param($k, $v[1]);$/;"	v
+p	xhprof_lib/utils/xhprof_lib.php	/^      $p = xhprof_get_uint_param($k, $v[1]);$/;"	v
+page	xhprof_lib/utils/xhprof_lib.php	/^      $page = $description;$/;"	v
+params	web/xhprof/callgraph.php	/^$params = array(\/\/ run id param$/;"	v
+params	web/xhprof/index.php	/^$params = array('run'        => array(XHPROF_STRING_PARAM, ''),$/;"	v
+params	xhprof_lib/display/typeahead_common.php	/^$params = array('q'          => array(XHPROF_STRING_PARAM, ''),$/;"	v
+parent_child	xhprof_lib/utils/xhprof_lib.php	/^            $parent_child = xhprof_build_parent_child_key("__script::$page",$/;"	v
+parse	web/xhprof/jquery/jquery.autocomplete.js	/^	function parse(data) {$/;"	f
+path	xhprof_lib/utils/callgraph_utils.php	/^    $path = array();$/;"	v
+path_edges	xhprof_lib/utils/callgraph_utils.php	/^    $path_edges = array();$/;"	v
+pc_info	xhprof_lib/display/xhprof.php	/^function pc_info($info, $base_ct, $base_info, $parent) {$/;"	f
+pc_stats	xhprof_lib/display/xhprof.php	/^  $pc_stats = $stats;$/;"	v
+pc_stats	xhprof_lib/display/xhprof.php	/^$pc_stats = array();$/;"	v
+pct	xhprof_lib/display/xhprof.php	/^    $pct = "N\/A%";$/;"	v
+pct	xhprof_lib/display/xhprof.php	/^    $pct = xhprof_percent_format($numer \/ abs($denom));$/;"	v
+pct	xhprof_lib/display/xhprof.php	/^function pct($a, $b) {$/;"	f
+populate	web/xhprof/jquery/jquery.autocomplete.js	/^	function populate(){$/;"	f
+possible_metrics	xhprof_lib/display/xhprof.php	/^  $possible_metrics = xhprof_get_possible_metrics($xhprof_data);$/;"	v
+possible_metrics	xhprof_lib/display/xhprof.php	/^  $possible_metrics = xhprof_get_possible_metrics();$/;"	v
+possible_metrics	xhprof_lib/utils/xhprof_lib.php	/^  $possible_metrics = xhprof_get_possible_metrics();$/;"	v
+print_flat_data	xhprof_lib/display/xhprof.php	/^function print_flat_data($url_params, $title, $flat_data, $sort, $run1, $run2, $limit) {$/;"	f
+print_function_info	xhprof_lib/display/xhprof.php	/^function print_function_info($url_params, $info, $sort, $run1, $run2) {$/;"	f
+print_pc_array	xhprof_lib/display/xhprof.php	/^function print_pc_array($url_params, $results, $base_ct, $base_info, $parent,$/;"	f
+print_symbol_summary	xhprof_lib/display/xhprof.php	/^function print_symbol_summary($symbol_info, $stat, $base) {$/;"	f
+print_td_num	xhprof_lib/display/xhprof.php	/^function print_td_num($num, $fmt_func, $bold=false, $attributes=null) {$/;"	f
+print_td_pct	xhprof_lib/display/xhprof.php	/^function print_td_pct($numer, $denom, $bold=false, $attributes=null) {$/;"	f
+process	xhprof_lib/utils/callgraph_utils.php	/^  $process = proc_open($cmd, $descriptorspec, $pipes, "\/tmp", array());$/;"	v
+production_notes	web/xhprof/docs/index.html	/^<li><a name="production_notes"><h2>Notes on using XHProf in production<\/h2><\/a>$/;"	a
+profiler_diff_report	xhprof_lib/display/xhprof.php	/^function profiler_diff_report($url_params,$/;"	f
+profiler_report	xhprof_lib/display/xhprof.php	/^function profiler_report ($url_params,$/;"	f
+profiler_single_run_report	xhprof_lib/display/xhprof.php	/^function profiler_single_run_report ($url_params,$/;"	f
+prune_metric	xhprof_lib/utils/xhprof_lib.php	/^    $prune_metric = "samples";$/;"	v
+prune_metric	xhprof_lib/utils/xhprof_lib.php	/^    $prune_metric = "wt";$/;"	v
+prune_threshold	xhprof_lib/utils/xhprof_lib.php	/^  $prune_threshold = (($main_info[$prune_metric] * $prune_percent) \/ 100.0);$/;"	v
+pruned_edge	xhprof_lib/utils/xhprof_lib.php	/^      $pruned_edge = xhprof_build_parent_child_key("__pruned__()", $child);$/;"	v
+raw_data	xhprof_lib/display/typeahead_common.php	/^  $raw_data = $xhprof_runs_impl->get_run($run, $source, $desc_unused);$/;"	v
+raw_data	xhprof_lib/display/typeahead_common.php	/^  $raw_data = $xhprof_runs_impl->get_run($run1, $source, $desc_unused);$/;"	v
+raw_data	xhprof_lib/display/typeahead_common.php	/^  $raw_data = $xhprof_runs_impl->get_run($run2, $source, $desc_unused);$/;"	v
+raw_data	xhprof_lib/utils/callgraph_utils.php	/^  $raw_data = $xhprof_runs_impl->get_run($run_id, $source, $description);$/;"	v
+raw_data	xhprof_lib/utils/xhprof_lib.php	/^    $raw_data = $xhprof_runs_impl->get_run($run_id, $source, $description);$/;"	v
+raw_data	xhprof_lib/utils/xhprof_lib.php	/^  $raw_data       = null;$/;"	v
+raw_data1	xhprof_lib/utils/callgraph_utils.php	/^  $raw_data1 = $xhprof_runs_impl->get_run($run1, $source, $desc_unused);$/;"	v
+raw_data2	xhprof_lib/utils/callgraph_utils.php	/^  $raw_data2 = $xhprof_runs_impl->get_run($run2, $source, $desc_unused);$/;"	v
+raw_data_total	xhprof_lib/utils/xhprof_lib.php	/^  $raw_data_total = array();$/;"	v
+raw_data_total	xhprof_lib/utils/xhprof_lib.php	/^  $raw_data_total = null;$/;"	v
+receiveData	web/xhprof/jquery/jquery.autocomplete.js	/^	function receiveData(q, data) {$/;"	f
+regr_impr	xhprof_lib/display/xhprof.php	/^    $regr_impr = "";$/;"	v
+regr_impr	xhprof_lib/display/xhprof.php	/^    $regr_impr = "<i style='color:red'>Regression<\/i>\/<i style='color:green'>Improvement<\/i>";$/;"	v
+remove_funcs	xhprof_lib/utils/callgraph_utils.php	/^    $remove_funcs = array("main()",$/;"	v
+request	web/xhprof/jquery/jquery.autocomplete.js	/^	function request(term, success, failure) {$/;"	f
+res	xhprof_lib/display/xhprof.php	/^    $res = (round(($a * 1000 \/ $b)) \/ 10);$/;"	v
+res	xhprof_lib/utils/xhprof_lib.php	/^  $res = array_keys($matches);$/;"	v
+resp_time	auto-xhprof.php	/^            $resp_time    = $data['resp_time'];$/;"	v
+resp_time	auto-xhprof.php	/^    $resp_time   = sprintf("%.4f", $GLOBALS['AX_PAGE_END_TIME'] - $GLOBALS['AX_PAGE_START_TIME']);$/;"	v
+result	xhprof_lib/utils/callgraph_utils.php	/^  $result = "digraph call_graph {\\n";$/;"	v
+result	xhprof_lib/utils/callgraph_utils.php	/^  $result = $result . "\\n}";$/;"	v
+results	xhprof_lib/display/xhprof.php	/^  $results = array();$/;"	v
+ret	auto-xhprof.php	/^            $ret = do_background_job('xhprof.write', serialize($data));$/;"	v
+ret	xhprof_lib/utils/xhprof_lib.php	/^  $ret = explode("==>", $parent_child);$/;"	v
+right	xhprof_lib/display/xhprof.php	/^      $right = abs($right);$/;"	v
+right	xhprof_lib/display/xhprof.php	/^    $right = $b[$sort_col];$/;"	v
+right	xhprof_lib/display/xhprof.php	/^    $right = strtoupper($b["fn"]);$/;"	v
+rows	auto-xhprof.php	/^            $rows  = $this->db->query($sql);$/;"	v
+rows	auto-xhprof.php	/^        $rows = $this->db->query($sql);$/;"	v
+rows	web/index.php	/^$rows = $db->query("SELECT * FROM ax_log ORDER BY id DESC LIMIT 100");$/;"	v
+run1_data	xhprof_lib/display/xhprof.php	/^    $run1_data = xhprof_trim_run($run1_data, array($rep_symbol));$/;"	v
+run1_link	xhprof_lib/display/xhprof.php	/^    $run1_link = xhprof_render_link('View Run #' . $run1,$/;"	v
+run1_txt	xhprof_lib/display/xhprof.php	/^  $run1_txt = sprintf("<b>Run #%s:<\/b> %s",$/;"	v
+run2	xhprof_lib/display/xhprof.php	/^                          $run2 = 0,$/;"	v
+run2	xhprof_lib/display/xhprof.php	/^                       $run2 = 0,$/;"	v
+run2_data	xhprof_lib/display/xhprof.php	/^                          $run2_data = array()) {$/;"	v
+run2_data	xhprof_lib/display/xhprof.php	/^      $run2_data = xhprof_trim_run($run2_data, array($rep_symbol));$/;"	v
+run2_desc	xhprof_lib/display/xhprof.php	/^                          $run2_desc = "",$/;"	v
+run2_link	xhprof_lib/display/xhprof.php	/^    $run2_link = xhprof_render_link('View Run #' . $run2,$/;"	v
+run2_txt	xhprof_lib/display/xhprof.php	/^    $run2_txt = sprintf("<b>Run #%s:<\/b> %s",$/;"	v
+run_count	xhprof_lib/utils/xhprof_lib.php	/^  $run_count = $run_count - count($bad_runs);$/;"	v
+run_count	xhprof_lib/utils/xhprof_lib.php	/^  $run_count = count($runs);$/;"	v
+run_delta	xhprof_lib/display/xhprof.php	/^    $run_delta = xhprof_compute_diff($run1_data, $run2_data);$/;"	v
+run_delta	xhprof_lib/utils/callgraph_utils.php	/^  $run_delta = xhprof_compute_diff($raw_data1, $raw_data2);$/;"	v
+run_desc	auto-xhprof.php	/^            $run_desc = "XHProf Run (Namespace=$type)";$/;"	v
+run_desc	xhprof_lib/utils/xhprof_runs.php	/^      $run_desc = "Invalid Run Id = $run_id";$/;"	v
+run_desc	xhprof_lib/utils/xhprof_runs.php	/^    $run_desc = "XHProf Run (Namespace=$type)";$/;"	v
+run_id	auto-xhprof.php	/^            $run_id     = $xhprof_run->save_run($data);$/;"	v
+run_id	auto-xhprof.php	/^            $run_id    = uniqid();$/;"	v
+run_id	auto-xhprof.php	/^        $run_id     = $xhprof_run->save_run($data);$/;"	v
+run_id	gearman-worker.php	/^    $run_id      = $xhprof_run->save_run($data);$/;"	v
+run_id	xhprof_lib/utils/xhprof_runs.php	/^      $run_id = $this->gen_run_id($type);$/;"	v
+runs_array	xhprof_lib/display/xhprof.php	/^    $runs_array = explode(",", $run);$/;"	v
+runs_string	xhprof_lib/utils/xhprof_lib.php	/^  $runs_string = implode(",", $runs);$/;"	v
+sampling_mode	web/xhprof/docs/index.html	/^<li><a name="sampling_mode"><h2>Lightweight Sampling Mode<\/h2><\/a>$/;"	a
+save	web/xhprof/jquery/jquery.tooltip.js	/^	function save() {$/;"	f
+script	xhprof_lib/utils/callgraph_utils.php	/^  $script = xhprof_generate_dot_script($raw_data, $threshold, $source,$/;"	v
+script	xhprof_lib/utils/callgraph_utils.php	/^  $script = xhprof_generate_dot_script($run_delta, $threshold, $source,$/;"	v
+selectCurrent	web/xhprof/jquery/jquery.autocomplete.js	/^	function selectCurrent() {$/;"	f
+settings	web/xhprof/jquery/jquery.tooltip.js	/^	function settings(element) {$/;"	f
+shape	xhprof_lib/utils/callgraph_utils.php	/^      $shape = "box";$/;"	v
+shape	xhprof_lib/utils/callgraph_utils.php	/^      $shape = "octagon";$/;"	v
+show	web/xhprof/jquery/jquery.tooltip.js	/^	function show() {$/;"	f
+size	xhprof_lib/display/xhprof.php	/^  $size  = count($flat_data);$/;"	v
+sizing_factor	xhprof_lib/utils/callgraph_utils.php	/^        $sizing_factor = $max_sizing_ratio;$/;"	v
+sizing_factor	xhprof_lib/utils/callgraph_utils.php	/^      $sizing_factor = $max_sizing_ratio;$/;"	v
+sizing_factor	xhprof_lib/utils/callgraph_utils.php	/^      $sizing_factor = $max_wt \/ abs($info["excl_wt"]) ;$/;"	v
+sort_cbk	xhprof_lib/display/xhprof.php	/^function sort_cbk($a, $b)$/;"	f
+sort_col	xhprof_lib/display/xhprof.php	/^      $sort_col = "samples";$/;"	v
+sort_col	xhprof_lib/display/xhprof.php	/^      $sort_col = $sort;$/;"	v
+sort_col	xhprof_lib/display/xhprof.php	/^    $sort_col = str_replace("excl_", "", $sort_col);$/;"	v
+sort_col	xhprof_lib/display/xhprof.php	/^$sort_col = "wt";$/;"	v
+sortable_columns	xhprof_lib/display/xhprof.php	/^$sortable_columns = array("fn" => 1,$/;"	v
+sql	auto-xhprof.php	/^                $sql      = sprintf("INSERT INTO ax_error(id, type, message, file, line) VALUES ('%s', %d, %s, '%s', %d)",$/;"	v
+sql	auto-xhprof.php	/^                $sql = sprintf("INSERT INTO ax_xhprof(id, type, data) VALUES ('%s', '%s', '%s')", $run_id, $type, $xhprof);$/;"	v
+sql	auto-xhprof.php	/^            $sql   = "SELECT data FROM ax_xhprof WHERE id='$run_id'";$/;"	v
+sql	auto-xhprof.php	/^            $sql = sprintf("INSERT INTO ax_log(host, uri, resp_time, error_id, xhprof_id, client_time, log_time) $/;"	v
+stat_description	xhprof_lib/display/xhprof.php	/^function stat_description($stat) {$/;"	f
+stats	xhprof_lib/display/xhprof.php	/^    $stats = array("fn");$/;"	v
+stats	xhprof_lib/display/xhprof.php	/^    $stats = array("fn", "ct", "Calls%");$/;"	v
+stats	xhprof_lib/display/xhprof.php	/^$stats = array();$/;"	v
+stopLoading	web/xhprof/jquery/jquery.autocomplete.js	/^	function stopLoading() {$/;"	f
+stringAbs	web/xhprof/js/xhprof_report.js	/^function stringAbs(x) {$/;"	f
+success	web/xhprof/jquery/jquery-1.2.6.js	/^		function success(){$/;"	f
+sym_table	xhprof_lib/utils/callgraph_utils.php	/^  $sym_table = xhprof_compute_flat_info($raw_data, $totals);$/;"	v
+symbol_info1	xhprof_lib/display/xhprof.php	/^                       $symbol_info1 = null,$/;"	v
+symbol_info2	xhprof_lib/display/xhprof.php	/^                       $symbol_info2 = null) {$/;"	v
+symbol_report	xhprof_lib/display/xhprof.php	/^function symbol_report($url_params,$/;"	f
+symbol_tab	xhprof_lib/display/xhprof.php	/^    $symbol_tab  = xhprof_compute_flat_info($run_delta, $totals);$/;"	v
+symbol_tab	xhprof_lib/display/xhprof.php	/^    $symbol_tab = xhprof_compute_flat_info($run1_data, $totals);$/;"	v
+symbol_tab	xhprof_lib/utils/xhprof_lib.php	/^  $symbol_tab = array();$/;"	v
+symbol_tab	xhprof_lib/utils/xhprof_lib.php	/^  $symbol_tab = xhprof_compute_inclusive_times($raw_data);$/;"	v
+symbol_tab1	xhprof_lib/display/xhprof.php	/^    $symbol_tab1 = xhprof_compute_flat_info($run1_data, $totals_1);$/;"	v
+symbol_tab1	xhprof_lib/utils/callgraph_utils.php	/^  $symbol_tab1 = xhprof_compute_flat_info($raw_data1, $total1);$/;"	v
+symbol_tab2	xhprof_lib/display/xhprof.php	/^    $symbol_tab2 = xhprof_compute_flat_info($run2_data, $totals_2);$/;"	v
+symbol_tab2	xhprof_lib/utils/callgraph_utils.php	/^  $symbol_tab2 = xhprof_compute_flat_info($raw_data2, $total2);$/;"	v
+t	web/xhprof/jquery/jquery-1.2.6.js	/^		function t(gotoEnd){$/;"	f
+taillabel	xhprof_lib/utils/callgraph_utils.php	/^      $taillabel = ($sym_table[$parent]["wt"] > 0) ?$/;"	v
+target	web/xhprof/jquery/jquery.autocomplete.js	/^	function target(event) {$/;"	f
+target	xhprof_lib/display/xhprof.php	/^                            $target='',$/;"	v
+threshold	web/xhprof/callgraph.php	/^  $threshold = $params['threshold'][1];$/;"	v
+title	xhprof_lib/display/xhprof.php	/^      $title = "Displaying top $limit functions: Sorted by $desc";$/;"	v
+title	xhprof_lib/display/xhprof.php	/^      $title = "Sorted by $desc";$/;"	v
+title	xhprof_lib/display/xhprof.php	/^      $title = "Top 100 <i style='color:red'>Regressions<\/i>\/"$/;"	v
+title	xhprof_lib/display/xhprof.php	/^      $title = "Total Diff Report: '$/;"	v
+title	xhprof_lib/display/xhprof.php	/^    $title = 'Child function';$/;"	v
+title	xhprof_lib/display/xhprof.php	/^    $title = 'Parent function';$/;"	v
+tmp	xhprof_lib/display/xhprof.php	/^    $tmp = $info;$/;"	v
+top_link_query_string	xhprof_lib/display/xhprof.php	/^  $top_link_query_string = "$base_path\/?" . http_build_query($base_url_params);$/;"	v
+total_times	xhprof_lib/utils/callgraph_utils.php	/^    $total_times = $sym_table["main()"]["ct"];$/;"	v
+totals	xhprof_lib/display/xhprof.php	/^$totals = 0;$/;"	v
+totals_1	xhprof_lib/display/xhprof.php	/^$totals_1 = 0;$/;"	v
+totals_2	xhprof_lib/display/xhprof.php	/^$totals_2 = 0;$/;"	v
+trimWords	web/xhprof/jquery/jquery.autocomplete.js	/^	function trimWords(value) {$/;"	f
+type	auto-xhprof.php	/^                $type      = $host . $uri;$/;"	v
+type	web/xhprof/callgraph.php	/^  $type = $params['type'][1]; \/\/ default image type.$/;"	v
+type	xhprof_lib/display/xhprof.php	/^    $type = "Child";$/;"	v
+type	xhprof_lib/display/xhprof.php	/^    $type = "Parent";$/;"	v
+ui_dir_url_path	xhprof_lib/display/xhprof.php	/^    $ui_dir_url_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), "\/");$/;"	v
+ui_setup	web/xhprof/docs/index.html	/^<li><a name="ui_setup"><h2>Setting up XHProf UI<\/h2><\/a>$/;"	a
+update	web/xhprof/jquery/jquery.tooltip.js	/^	function update(event)	{$/;"	f
+uri	auto-xhprof.php	/^            $uri          = $data['uri'];$/;"	v
+use_script_name	xhprof_lib/utils/xhprof_lib.php	/^                               $use_script_name=false) {$/;"	v
+use_script_name	xhprof_lib/utils/xhprof_lib.php	/^        $use_script_name = false;$/;"	v
+using_extension	web/xhprof/docs/index.html	/^<li><a name="using_extension"><h2>Profiling using XHProf<\/h2><\/a>$/;"	a
+val	xhprof_lib/display/xhprof.php	/^  $val = $symbol_info[$stat];$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = $_GET[$param];$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = $_POST[$param];$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = $default;$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = $info[$metric];$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = (bool)$val;$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = false;$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^    $val = true;$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^  $val = null;$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^  $val = trim($val);$/;"	v
+val	xhprof_lib/utils/xhprof_lib.php	/^  $val = xhprof_get_param_helper($param);$/;"	v
+vbar	web/xhprof/index.php	/^$vbar  = ' class="vbar"';$/;"	v
+vbbar	web/xhprof/index.php	/^$vbbar = ' class="vbbar"';$/;"	v
+vgbar	web/xhprof/index.php	/^$vgbar = ' class="vgbar"';$/;"	v
+viewport	web/xhprof/jquery/jquery.tooltip.js	/^	function viewport() {$/;"	f
+visited	xhprof_lib/utils/callgraph_utils.php	/^    $visited = array();$/;"	v
+vrbar	web/xhprof/index.php	/^$vrbar = ' class="vrbar"';$/;"	v
+vwbar	web/xhprof/index.php	/^$vwbar = ' class="vwbar"';$/;"	v
+vwlbar	web/xhprof/index.php	/^$vwlbar = ' class="vwlbar"';$/;"	v
+width	xhprof_lib/utils/callgraph_utils.php	/^    $width = ", width=".sprintf("%.1f", $max_width \/ $sizing_factor);$/;"	v
+worker	gearman-worker.php	/^$worker = new GearmanWorker();$/;"	v
+wt	xhprof_lib/utils/xhprof_lib.php	/^    $wt = ($wts_count == 0) ? 1 : $wts[$idx];$/;"	v
+wts_array	xhprof_lib/display/xhprof.php	/^        $wts_array  = explode(",", $wts);$/;"	v
+wts_array	xhprof_lib/display/xhprof.php	/^        $wts_array = null;$/;"	v
+wts_count	xhprof_lib/utils/xhprof_lib.php	/^  $wts_count = count($wts);$/;"	v
+wts_string	xhprof_lib/utils/xhprof_lib.php	/^    $wts_string  = "in the ratio (" . implode(":", $wts) . ")";$/;"	v
+wts_string	xhprof_lib/utils/xhprof_lib.php	/^    $wts_string = "";$/;"	v
+xhprof	auto-xhprof.php	/^                $xhprof    = $data['xhprof'];$/;"	v
+xhprof	auto-xhprof.php	/^                $xhprof = str_replace("'","\\"" ,(serialize($xhprof)));$/;"	v
+xhprof_aggregate_runs	web/xhprof/docs/index.html	/^<a name="xhprof_aggregate_runs"><\/a>$/;"	a
+xhprof_aggregate_runs	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_aggregate_runs($xhprof_runs_impl, $runs,$/;"	f
+xhprof_array_set	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_array_set($arr, $k, $v) {$/;"	f
+xhprof_array_unset	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_array_unset($arr, $k) {$/;"	f
+xhprof_build_parent_child_key	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_build_parent_child_key($parent, $child) {$/;"	f
+xhprof_compute_diff	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_compute_diff($xhprof_data1, $xhprof_data2) {$/;"	f
+xhprof_compute_flat_info	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_compute_flat_info($raw_data, &$overall_totals) {$/;"	f
+xhprof_compute_inclusive_times	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_compute_inclusive_times($raw_data) {$/;"	f
+xhprof_count_format	xhprof_lib/display/xhprof.php	/^function xhprof_count_format($num) {$/;"	f
+xhprof_data	xhprof_lib/display/xhprof.php	/^      $xhprof_data = $data['raw'];$/;"	v
+xhprof_data	xhprof_lib/display/xhprof.php	/^      $xhprof_data = $xhprof_runs_impl->get_run($runs_array[0],$/;"	v
+xhprof_data	xhprof_lib/utils/xhprof_runs.php	/^    $xhprof_data = serialize($xhprof_data);$/;"	v
+xhprof_data1	xhprof_lib/display/xhprof.php	/^    $xhprof_data1 = $xhprof_runs_impl->get_run($run1, $source, $description1);$/;"	v
+xhprof_data2	xhprof_lib/display/xhprof.php	/^    $xhprof_data2 = $xhprof_runs_impl->get_run($run2, $source, $description2);$/;"	v
+xhprof_delta	xhprof_lib/utils/xhprof_lib.php	/^  $xhprof_delta = $xhprof_data2;$/;"	v
+xhprof_enabled	auto-xhprof.php	/^$xhprof_enabled  = module_enabled('xhprof');  \/\/ 检查xhprof模块是否可用$/;"	v
+xhprof_error	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_error($message) {$/;"	f
+xhprof_generate_dot_script	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_generate_dot_script($raw_data, $threshold, $source, $page,$/;"	f
+xhprof_generate_image_by_dot	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_generate_image_by_dot($dot_script, $type) {$/;"	f
+xhprof_generate_mime_header	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_generate_mime_header($type, $length) {$/;"	f
+xhprof_get_bool_param	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_bool_param($param, $default = false) {$/;"	f
+xhprof_get_children_table	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_get_children_table($raw_data) {$/;"	f
+xhprof_get_content_by_run	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_get_content_by_run($xhprof_runs_impl, $run_id, $type,$/;"	f
+xhprof_get_float_param	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_float_param($param, $default = 0) {$/;"	f
+xhprof_get_matching_functions	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_matching_functions($q, $xhprof_data) {$/;"	f
+xhprof_get_metrics	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_metrics($xhprof_data) {$/;"	f
+xhprof_get_param_helper	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_param_helper($param) {$/;"	f
+xhprof_get_possible_metrics	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_possible_metrics() {$/;"	f
+xhprof_get_string_param	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_string_param($param, $default = '') {$/;"	f
+xhprof_get_uint_param	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_get_uint_param($param, $default = 0) {$/;"	f
+xhprof_http_header	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_http_header($name, $value) {$/;"	f
+xhprof_id	auto-xhprof.php	/^                $xhprof_id = $run_id;$/;"	v
+xhprof_id	auto-xhprof.php	/^            $xhprof_id = '';$/;"	v
+xhprof_id	web/index.php	/^            $xhprof_id = "<a href='xhprof\/index.php?run=".$xhprof_id."'>".$xhprof_id."<\/a>";$/;"	v
+xhprof_id	web/index.php	/^        $xhprof_id = $row['xhprof_id'];$/;"	v
+xhprof_include_js_css	xhprof_lib/display/xhprof.php	/^function xhprof_include_js_css($ui_dir_url_path = null) {$/;"	f
+xhprof_legal_image_types	xhprof_lib/utils/callgraph_utils.php	/^$xhprof_legal_image_types = array($/;"	v
+xhprof_normalize_metrics	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_normalize_metrics($raw_data, $num_runs) {$/;"	f
+xhprof_param_init	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_param_init($params) {$/;"	f
+xhprof_parse_parent_child	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_parse_parent_child($parent_child) {$/;"	f
+xhprof_percent_format	xhprof_lib/display/xhprof.php	/^function xhprof_percent_format($s, $precision = 1) {$/;"	f
+xhprof_prune_run	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_prune_run($raw_data, $prune_percent) {$/;"	f
+xhprof_render_actions	xhprof_lib/display/xhprof.php	/^function xhprof_render_actions($actions) {$/;"	f
+xhprof_render_diff_image	xhprof_lib/utils/callgraph_utils.php	/^function  xhprof_render_diff_image($xhprof_runs_impl, $run1, $run2,$/;"	f
+xhprof_render_image	xhprof_lib/utils/callgraph_utils.php	/^function xhprof_render_image($xhprof_runs_impl, $run_id, $type, $threshold,$/;"	f
+xhprof_render_link	xhprof_lib/display/xhprof.php	/^function xhprof_render_link($content, $href, $class='', $id='', $title='',$/;"	f
+xhprof_run	auto-xhprof.php	/^            $xhprof_run = new XHProfRuns_DB();$/;"	v
+xhprof_run	auto-xhprof.php	/^        $xhprof_run = new XHProfRuns_DB();$/;"	v
+xhprof_run	gearman-worker.php	/^    $xhprof_run  = new XHProfRuns_DB();$/;"	v
+xhprof_runs_impl	web/xhprof/callgraph.php	/^$xhprof_runs_impl = new XHProfRuns_DB();$/;"	v
+xhprof_runs_impl	web/xhprof/index.php	/^$xhprof_runs_impl = new XHProfRuns_DB();$/;"	v
+xhprof_runs_impl	web/xhprof/typeahead.php	/^$xhprof_runs_impl = new XHProfRuns_Default();$/;"	v
+xhprof_start	auto-xhprof.php	/^function xhprof_start() { \/\/ 打开xhprof$/;"	f
+xhprof_stop	auto-xhprof.php	/^function xhprof_stop() { \/\/ 关闭xhprof$/;"	f
+xhprof_trim_run	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_trim_run($raw_data, $functions_to_keep) {$/;"	f
+xhprof_valid_run	xhprof_lib/utils/xhprof_lib.php	/^function xhprof_valid_run($run_id, $raw_data) {$/;"	f
+xhprof_write	gearman-worker.php	/^function xhprof_write($job) {$/;"	f
